@@ -134,6 +134,13 @@ strong{font-weight:500;color:var(--ink)}
 /* FOOTER */
 .doc-footer{background:var(--ink);padding:40px 80px;display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,236,.2)}
 @media(max-width:600px){.doc-footer{flex-direction:column;gap:12px;text-align:center;padding:32px 28px}}
+
+/* BACK BUTTON */
+.back-wrap{background:var(--ink);padding:48px 80px 0;display:flex;justify-content:center}
+.back-btn{display:inline-flex;align-items:center;gap:10px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(247,243,236,.35);text-decoration:none;border:1px solid rgba(247,243,236,.12);padding:14px 28px;transition:all .3s}
+.back-btn:hover{color:var(--gold);border-color:rgba(184,146,42,.4)}
+.back-btn::before{content:'←';font-size:14px}
+@media(max-width:600px){.back-wrap{padding:40px 28px 0}}
 </style>
 </head>
 <body>
@@ -147,14 +154,22 @@ strong{font-weight:500;color:var(--ink)}
 </nav>
 
 <!-- COVER -->
+<!-- COVER -->
 <section class="cover">
   <div class="cover-bg"></div>
   <div class="cover-stamp">Episode Treatment · Confidential · Yeah1 × VCB 2026</div>
-  <div class="cover-eyebrow">Quán Nhà Haha – Tập Đặc Biệt Huế</div>
-  <div class="cover-title">Bếp Haha<br>Gặp Bếp<br><em>Cung Đình</em></div>
-  <div class="cover-sub">Thuyền Rồng · Sông Hương · Nhã Nhạc · Hoa Số Hóa</div>
-  <div class="cover-rule"></div>
-  <div class="cover-premise">Khi xã hội thay đổi, một nghi thức đẹp sẽ đi về đâu?</div>
+  <div class="cover-inner">
+    <div class="cover-text">
+      <div class="cover-eyebrow">Quán Nhà Haha — chặng Huế</div>
+      <div class="cover-title">Bếp Nhà Haha<br>Gặp Bếp<br><em>Cung Đình</em></div>
+      <div class="cover-sub">Thuyền Rồng · Sông Hương · Nhã Nhạc · Hoa Số Hóa</div>
+      <div class="cover-rule"></div>
+      <div class="cover-premise">Khi xã hội thay đổi, một nghi thức đẹp sẽ đi về đâu?</div>
+    </div>
+    <div class="cover-img-wrap">
+      <img src="../images/qnh-cover.jpg" alt="QNH Huế Cover">
+    </div>
+  </div>
   <div class="cover-meta">
     Jun Phạm · Rhymastic · Bùi Công Nam<br>
     Ngọc Thanh Tâm · Duy Khánh<br>
@@ -343,11 +358,6 @@ strong{font-weight:500;color:var(--ink)}
         <div class="vcb-title">Landing cảm xúc</div>
         <div class="vcb-desc">Khi Duy Khánh giới thiệu hoa QR, anh sẽ không nói "Mời quý khách tip cho nghệ nhân" mà nên phasing theo kiểu <em>"Đêm nay, nếu tiếng nhạc làm bạn muốn nói điều gì đó, thì hãy trao tâm tư vào cánh hoa."</em> Cảm xúc trở thành nội dung, NTT VCB là phương tiện. Logo VCB xuất hiện sau khi rose card được trao.</div>
       </div>
-  
-     <div class="callout">
-    <div class="callout-label">Framing cốt lõi</div>
-    <div class="callout-text">Cần tránh xa bất kỳ lối framing nào có thể khiến hiểu nhầm thành Nghệ nhân xin tiền của khán giả. Câu chuyện cốt lõi phải xoay quanh nghi thức cần được giữ lại cho dù xã hội đã đổi thay. VCB là hạ tầng cho nghi thức chứ không phải người cứu nghệ nhân.</div>
- 
      </div>
   </div>
   </div>
@@ -381,7 +391,11 @@ strong{font-weight:500;color:var(--ink)}
 
   <p>Cảm ơn Quý công ty đã đọc, đây chỉ là ý tưởng đề xuất thô sơ được tôi triển khai với mong muốn được thể hiện tâm huyết của bản thân với vị trí Biên Kịch tại Yeah1. Tuy không nắm tường tận cơ chế vận hành và cách xây dựng kịch bản của nội bộ công ty Yeah1, tôi tự tin vào khả năng học hỏi nhanh của bản thân và đam mê muốn được cống hiến trong các dự án đa chiều của công ty. Rất mong được Quý công ty xem xét.<br>– Felix Phan</p>
 </section>
-
+  
+<div class="back-wrap">
+  <a href="../index.html" class="back-btn">Quay lại Portfolio</a>
+</div>
+  
 <footer class="doc-footer">
   <span>Quán Nhà Haha · Huế Episode Treatment</span>
   <span style="color:var(--gold);opacity:.5">❧</span>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bếp Haha Gặp Bếp Cung Đình – Episode Treatment</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;1,14..32,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1a1410;--paper:#f7f3ec;--smoke:#ede8df;
+  --gold:#b8922a;--gold-pale:#e8d9b0;--red:#8b1f1f;
+  --muted:#7a6e60;--border:#d8cdb8;--river:#2a4a5a;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;font-weight:300;font-size:15px;line-height:1.75}
+
+/* COVER */
+.cover{min-height:100vh;background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:60px;position:relative;overflow:hidden}
+.cover-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 30% 80%,rgba(184,146,42,.13) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 80% 20%,rgba(42,74,90,.25) 0%,transparent 60%)}
+.cover-stamp{position:absolute;top:50px;right:60px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(247,243,236,.18);writing-mode:vertical-rl}
+.cover-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;position:relative}
+.cover-title{font-family:'Playfair Display',serif;font-size:clamp(52px,8vw,96px);font-weight:400;color:#f7f3ec;line-height:1.0;letter-spacing:-1px;position:relative;margin-bottom:8px}
+.cover-title em{color:var(--gold);font-style:italic}
+.cover-sub{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,236,.28);margin-bottom:48px;position:relative}
+.cover-rule{width:64px;height:1px;background:linear-gradient(to right,var(--gold),transparent);margin-bottom:32px;position:relative}
+.cover-premise{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,26px);font-style:italic;font-weight:400;color:rgba(247,243,236,.72);max-width:600px;line-height:1.5;position:relative}
+.cover-meta{position:absolute;bottom:50px;right:60px;text-align:right;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,236,.18);line-height:2.2}
+
+/* NAV */
+.sidenav{position:fixed;top:50%;left:24px;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:100}
+.sidenav a{width:6px;height:6px;border-radius:50%;background:var(--border);display:block;transition:all .3s;text-decoration:none}
+.sidenav a.active,.sidenav a:hover{background:var(--gold);transform:scale(1.5)}
+@media(max-width:768px){.sidenav{display:none}}
+
+/* SECTIONS */
+.section{padding:96px 0;max-width:860px;margin:0 auto;padding-left:80px;padding-right:60px}
+@media(max-width:768px){.section{padding:60px 28px}}
+.section+.section{border-top:1px solid var(--border)}
+.s-marker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.s-marker::after{content:'';flex:1;height:1px;background:linear-gradient(to right,var(--gold-pale),transparent);max-width:120px}
+h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,42px);font-weight:400;line-height:1.15;margin-bottom:32px;letter-spacing:-.3px}
+h2 em{color:var(--red);font-style:italic}
+h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;margin-bottom:12px;letter-spacing:-.2px}
+p{margin-bottom:18px;color:#38302a}p:last-child{margin-bottom:0}
+strong{font-weight:500;color:var(--ink)}
+
+/* CONCEPT */
+.concept-box{background:var(--ink);padding:48px 52px;margin:40px 0;position:relative;overflow:hidden}
+.concept-box::before{content:'"';position:absolute;top:-20px;left:36px;font-family:'Playfair Display',serif;font-size:200px;font-weight:700;color:rgba(184,146,42,.07);line-height:1;pointer-events:none}
+.concept-q{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-style:italic;font-weight:400;color:var(--gold-pale);line-height:1.5;margin-bottom:24px;position:relative}
+.concept-note{font-size:13px;color:rgba(247,243,236,.42);line-height:1.8;position:relative}
+
+/* ACTS */
+.acts-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin:40px 0}
+.act-col{background:var(--paper);padding:32px 28px}
+.act-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:400;color:var(--gold-pale);line-height:1;margin-bottom:8px}
+.act-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.act-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;margin-bottom:14px}
+.act-time{font-size:11px;color:var(--muted);letter-spacing:1px;margin-bottom:16px}
+.act-beats{list-style:none;padding:0}
+.act-beats li{font-size:13px;color:#4a4035;padding:8px 0;border-bottom:1px solid rgba(216,205,184,.4);line-height:1.6}
+.act-beats li:last-child{border-bottom:none}
+.act-beats li::before{content:'–';color:var(--gold);margin-right:8px;font-size:11px}
+@media(max-width:700px){.acts-row{grid-template-columns:1fr}}
+
+/* CAST */
+.cast-list{display:flex;flex-direction:column;gap:0}
+.cast-item{display:grid;grid-template-columns:200px 1fr;gap:0;border-bottom:1px solid var(--border);padding:36px 0}
+.cast-item:first-child{border-top:1px solid var(--border)}
+.cast-dark{background:var(--ink);padding:36px;margin:0 -60px 0 -80px;padding-left:80px;padding-right:60px}
+@media(max-width:768px){.cast-dark{margin:0 -28px;padding:36px 28px}}
+.cast-left{padding-right:40px;border-right:1px solid var(--border)}
+.cast-dark .cast-left{border-right-color:rgba(184,146,42,.2)}
+.cast-role{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.cast-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;line-height:1.2;margin-bottom:10px}
+.cast-dark .cast-name{color:var(--gold-pale)}
+.cast-instrument{font-size:11px;color:var(--muted);font-style:italic}
+.cast-dark .cast-instrument{color:rgba(247,243,236,.3)}
+.cast-right{padding-left:40px}
+.cast-desc{font-size:13.5px;color:#4a4035;line-height:1.75}
+.cast-dark .cast-desc{color:rgba(247,243,236,.62)}
+.cast-spark{margin-top:14px;padding:14px 18px;background:rgba(184,146,42,.07);border-left:2px solid var(--gold);font-size:12.5px;color:#5a4e42;line-height:1.7;font-style:italic}
+.cast-dark .cast-spark{background:rgba(184,146,42,.08);color:rgba(247,243,236,.55)}
+@media(max-width:700px){.cast-item{grid-template-columns:1fr}.cast-left{border-right:none;border-bottom:1px solid var(--border);padding:0 0 20px}.cast-right{padding:20px 0 0}}
+
+/* DYNAMICS */
+.dynamic-grid{display:flex;flex-direction:column;gap:2px;margin:32px 0}
+.dynamic-row{display:grid;grid-template-columns:180px 1fr;background:var(--smoke);overflow:hidden}
+.dynamic-pair{background:var(--ink);padding:20px 24px;font-family:'Playfair Display',serif;font-size:14px;font-weight:600;color:var(--gold-pale);display:flex;align-items:center}
+.dynamic-desc{padding:20px 28px;font-size:13px;color:#4a4035;line-height:1.7}
+@media(max-width:700px){.dynamic-row{grid-template-columns:1fr}.dynamic-pair{padding:16px 20px}.dynamic-desc{padding:16px 20px}}
+
+/* VCB */
+.vcb-steps{position:relative;margin:40px 0}
+.vcb-line{position:absolute;left:19px;top:0;bottom:0;width:1px;background:var(--border)}
+.vcb-step{position:relative;display:grid;grid-template-columns:40px 1fr;gap:24px;margin-bottom:40px;align-items:start}
+.vcb-step:last-child{margin-bottom:0}
+.vcb-dot{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold);background:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:var(--gold);position:relative;z-index:1;flex-shrink:0}
+.vcb-content{padding-top:6px}
+.vcb-title{font-weight:500;font-size:15px;color:var(--ink);margin-bottom:8px}
+.vcb-desc{font-size:13.5px;color:#4a4035;line-height:1.75}
+.vcb-desc em{font-style:italic;color:var(--river)}
+
+/* CALLOUT */
+.callout{border:1px solid var(--red);padding:32px 40px;margin:40px 0;position:relative}
+.callout-label{position:absolute;top:-10px;left:28px;background:var(--paper);padding:0 10px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-weight:500}
+.callout-text{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,22px);font-style:italic;color:var(--red);line-height:1.6}
+
+/* AMBASSADOR */
+.amb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin:32px 0}
+.amb-card{background:var(--paper);padding:28px 24px}
+.amb-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:400;color:var(--gold-pale);line-height:1;margin-bottom:8px}
+.amb-title{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;color:var(--ink)}
+.amb-desc{font-size:13px;color:#5a4e42;line-height:1.7}
+@media(max-width:700px){.amb-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.amb-grid{grid-template-columns:1fr}}
+
+/* TITLES */
+.title-list{display:flex;flex-direction:column;gap:0;margin-top:16px}
+.title-item{display:grid;grid-template-columns:40px 1fr auto;gap:20px;align-items:start;padding:22px 0;border-bottom:1px solid rgba(216,205,184,.5)}
+.title-item:last-child{border-bottom:none}
+.title-n{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;color:var(--gold);padding-top:2px;text-align:right}
+.title-vn{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;margin-bottom:5px;line-height:1.3}
+.title-note{font-size:12px;color:var(--muted);line-height:1.6}
+.badge{font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:1px;white-space:nowrap;margin-top:3px;display:inline-block}
+.b-trad{background:rgba(184,146,42,.1);color:var(--gold);border:1px solid rgba(184,146,42,.25)}
+.b-mid{background:rgba(42,74,90,.08);color:var(--river);border:1px solid rgba(42,74,90,.2)}
+.b-bold{background:rgba(139,31,31,.08);color:var(--red);border:1px solid rgba(139,31,31,.2)}
+
+/* NOTE */
+.note{border-left:2px solid var(--gold);padding:16px 20px;background:rgba(184,146,42,.05);font-size:13px;color:#5a4e42;line-height:1.75;margin:28px 0;font-style:italic}
+
+/* FOOTER */
+.doc-footer{background:var(--ink);padding:40px 80px;display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,236,.2)}
+@media(max-width:600px){.doc-footer{flex-direction:column;gap:12px;text-align:center;padding:32px 28px}}
+</style>
+</head>
+<body>
+
+<nav class="sidenav" id="nav">
+  <a href="#boi-canh" title="Bối cảnh"></a>
+  <a href="#cau-chuyen" title="Câu chuyện"></a>
+  <a href="#nhan-vat" title="Nhân vật"></a>
+  <a href="#hoa-so-hoa" title="Hoa số hóa"></a>
+  <a href="#dai-su" title="Đại sứ"></a>
+</nav>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-stamp">Episode Treatment · Confidential · Yeah1 × VCB 2026</div>
+  <div class="cover-eyebrow">Quán Nhà Haha – Tập Đặc Biệt Huế</div>
+  <div class="cover-title">Bếp Haha<br>Gặp Bếp<br><em>Cung Đình</em></div>
+  <div class="cover-sub">Thuyền Rồng · Sông Hương · Nhã Nhạc · Hoa Số Hóa</div>
+  <div class="cover-rule"></div>
+  <div class="cover-premise">Khi xã hội thay đổi, một nghi thức đẹp sẽ đi về đâu?</div>
+  <div class="cover-meta">
+    Jun Phạm · Rhymastic · Bùi Công Nam<br>
+    Ngọc Thanh Tâm · Duy Khánh<br>
+    Ghi hình: Tháng 6, 2026
+  </div>
+</section>
+
+<!-- 2. BỐI CẢNH -->
+<section class="section" id="boi-canh">
+  <div class="s-marker">Bối Cảnh</div>
+  <h2>Tại sao Huế,<br><em>tại sao thuyền rồng</em></h2>
+
+  <p>Nhã nhạc cung đình Huế là một phần của văn hóa Phong kiến xưa, nét văn hóa này từng "sống" trên sông Hương – nơi giới quý tộc, quan lại triều Nguyễn tổ chức yến tiệc, nghe ca trên thuyền Rồng. Khi đặt show lên thuyền Rồng, Quán Nhà HaHa sẽ đưa được Nhã nhạc về đúng với không gian loại hình này thuộc về.</p>
+
+  <p>Nhã nhạc cũng là di sản văn hóa phi vật thể đầu tiên của Việt Nam được UNESCO công nhận (năm 2003). Nhưng danh hiệu đó mang theo một tension lớn: prestige toàn cầu không tự động đem đến kế sinh nhai bền vững cho những nghệ nhân – người giữ lửa của Nhã nhạc. Tension đó là gap để VCB bước vào.</p>
+
+  <div class="note">Có một chi tiết kỹ thuật ít ai biết: âm thanh nhã nhạc trên sông Hương bị ảnh hưởng trực tiếp bởi gió và mặt nước. Nhạc công phải điều chỉnh vị trí ngồi, độ mạnh yếu theo thời tiết từng đêm. Vậy nên mỗi đêm diễn đều là một đêm duy nhất. Nghệ nhân sẽ nói điều này với cast, dẫn đến khoảnh khắc cast nhận ra Nhã nhạc không phải thứ có thể học từ sách vở hay YouTube.</div>
+
+</section>
+
+<!-- 3. CÂU CHUYỆN -->
+<section class="section" id="cau-chuyen">
+  <div class="s-marker">Câu Chuyện</div>
+  <h2>Ba hồi,<br><em>một ngày trên sông</em></h2>
+
+  <p>Tập diễn ra trong một ngày duy nhất, từ sáng sớm đến đêm khuya. Cấu trúc ba hồi. VCB product placement rơi vào giao điểm giữa Hồi 2 và Hồi 3.</p>
+
+  <div class="acts-row">
+    <div class="act-col">
+      <div class="act-num">I</div>
+      <div class="act-label">Sáng · Học</div>
+      <div class="act-title">Giới thiệu & Culture Shock</div>
+      <div class="act-time">Từ khi đến thuyền → trưa</div>
+      <ul class="act-beats">
+        <li>Lần đầu thấy thuyền rồng (reaction thật của từng người)</li>
+        <li>Gặp nghệ nhân, crash course nhã nhạc</li>
+        <li>Phân công nhạc cụ: đàn tranh, trống, kèn, phách</li>
+        <li>Đi chợ: không nhận chuyển khoản, cast không có tiền mặt – situation trớ trêu nhằm gieo hạt</li>
+        <li>BCN × nghệ nhân: câu chuyện bông cài tiền được kể lần đầu</li>
+      </ul>
+    </div>
+    <div class="act-col">
+      <div class="act-num">II</div>
+      <div class="act-label">Chiều · Chuẩn Bị</div>
+      <div class="act-title">Khâu Chuẩn bị</div>
+      <div class="act-time">Sau trưa → hoàng hôn</div>
+      <ul class="act-beats">
+        <li>Jun + Thanh Tâm vào bếp: bún bò, bánh bèo, tôm chua, cơm hến</li>
+        <li>3 người còn lại hỗ trợ, cản trở, thử nếm liên tục</li>
+        <li>Setup thuyền: cảnh hoàng hôn sông Hương</li>
+        <li>Cast brainstorm: "Làm sao giữ truyền thống bông cài tiền khi không có tiền mặt?"</li>
+        <li>Duy Khánh viết lời dẫn buổi tối từ trí nhớ, không có script</li>
+      </ul>
+    </div>
+    <div class="act-col">
+      <div class="act-num">III</div>
+      <div class="act-label">Tối · Biểu Diễn</div>
+      <div class="act-title">Đón tiếp và Trình diễn</div>
+      <div class="act-time">Hoàng hôn → đêm khuya</div>
+      <ul class="act-beats">
+        <li>Đại Sứ Mỹ Vị lên thuyền theo nghi thức</li>
+        <li>Bữa tối bắt đầu, Duy Khánh MC improvise</li>
+        <li>Dàn cast cùng thưởng thức Nhã nhạc và thử trình diễn cùng nghệ nhân</li>
+        <li>Ra mắt hoa QR (product placement VCB)</li>
+        <li>Thuyền trôi về đêm: BCN + Rhymastic closing reflection</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>Một điểm quan trọng về Hồi 3: buổi biểu diễn sẽ không hoàn hảo bởi không ai trong nhóm là nhạc công cung đình. Nhưng chính những moment vụng về đó là cách khán giả cảm nhận được độ khó của nhã nhạc, và cảm phục người nghệ nhân thực thụ hơn bất cứ lời giải thích nào.</p>
+</section>
+
+<!-- 4. NHÂN VẬT -->
+<section class="section" id="nhan-vat">
+  <div class="s-marker">Nhân Vật</div>
+  <h2>Năm người,<br><em>năm cách chạm một di sản</em></h2>
+
+  <div class="cast-list">
+    <div class="cast-item">
+      <div class="cast-left">
+        <div class="cast-role">Bếp Chính · Linh Hồn Dẫn Dắt</div>
+        <div class="cast-name">Jun Phạm</div>
+        <div class="cast-instrument">Nhạc cụ: Phách</div>
+      </div>
+      <div class="cast-right">
+        <p class="cast-desc">Trong bếp, Jun luôn là người quyết định cuối cùng món ra thế nào. Trong cặp bếp với 4 chú báo, Jun là lực hút giữ lịch trình không bị bay đi quá xa khỏi kế hoạch.</p>
+        <div class="cast-spark">Jun có bản năng văn hóa tốt, anh sẽ là người đầu tiên thực sự hiểu tại sao nhã nhạc cần được bảo tồn và thầm lặng dẫn cả nhóm đến quyết định hoa số hóa ở cuối ngày.</div>
+      </div>
+    </div>
+
+    <div class="cast-item">
+      <div class="cast-left">
+        <div class="cast-role">Bếp Chính · Cảm Nhận Mộc Mạc</div>
+        <div class="cast-name">Ngọc Thanh Tâm</div>
+        <div class="cast-instrument">Nhạc cụ: Trống nhỏ</div>
+      </div>
+      <div class="cast-right">
+        <p class="cast-desc">Thanh Tâm không ngại khó, cô có thể khéo léo và tỉ mẩn – đó chính xác những phẩm chất mà nhã nhạc yêu cầu. Cô có thể chơi trống, điều đó tạo tiền đề thật cho màn trình diễn của cả nhóm. Trong bếp, cô là năng lượng nhiệt tình đôi khi đúng chỗ, đôi khi không.</p>
+        <div class="cast-spark">Cặp Jun–Thanh Tâm trong bếp: Jun kiên nhẫn, Thanh Tâm "thợ đụng" – chí chóe nhưng nhẹ nhàng như anh em trong nhà.</div>
+      </div>
+    </div>
+
+    <div class="cast-item">
+      <div class="cast-left">
+        <div class="cast-role">Nhạc Công Triết Học</div>
+        <div class="cast-name">Rhymastic</div>
+        <div class="cast-instrument">Nhạc cụ: Kèn</div>
+      </div>
+      <div class="cast-right">
+        <p class="cast-desc">Rhymastic là người sẽ bị nhã nhạc "bắt" theo nghĩa nghiêm túc nhất. Anh sẽ hỏi nghệ nhân về cấu trúc âm nhạc, về triết lý "nhạc dĩ tải đạo" đằng sau từng bài – rồi bắt đầu liên hệ với tư duy âm nhạc của chính mình.</p>
+        <div class="cast-spark">Khoảnh khắc Rhymastic nhận ra nhã nhạc và âm nhạc hiện đại anh làm tuy rất khác nhau nhưng đều chia sẻ cùng những nét cốt lõi của âm nhạc – tạo nên khoảnh khắc giao thoa văn hóa gây WOW.</div>
+      </div>
+    </div>
+
+    <div class="cast-item">
+      <div class="cast-left">
+        <div class="cast-role">Nhịp Tim Cảm Xúc</div>
+        <div class="cast-name">Bùi Công Nam</div>
+        <div class="cast-instrument">Nhạc cụ: Đàn tranh</div>
+      </div>
+      <div class="cast-right">
+        <p class="cast-desc">BCN suy nghĩ đơn giản hơn, anh không phân tích nhã nhạc mà anh cảm nhận nó – bằng cả tấm lòng, theo đúng cách anh vẫn làm trong Season 1. BCN có khả năng kết nối với người dân địa phương (ở đây là các Nghệ nhân) tốt hơn bất cứ ai trong nhóm.</p>
+        <div class="cast-spark">Assign BCN học nhạc cụ từ nghệ nhân cao tuổi nhất. Cuộc gặp giữa hai người nghệ sĩ từ hai thế giới khác nhau sẽ tạo nên emotional anchor cho cả tập, và là nơi câu chuyện bông cài tiền được gieo hạt tự nhiên nhất.</div>
+      </div>
+    </div>
+
+    <div class="cast-item cast-dark">
+      <div class="cast-left">
+        <div class="cast-role">MC Chính · Người Dẫn Thuyền Rồng</div>
+        <div class="cast-name">Duy Khánh</div>
+        <div class="cast-instrument">Nhạc cụ: Phách + Giọng MC</div>
+      </div>
+      <div class="cast-right">
+        <p class="cast-desc">Đây là tập Duy Khánh được trao sân khấu lớn trong show – MC trên thuyền rồng. Gây yêu tố tương phản thú vị khác với hình ảnh ngây ngô hay "báo" quen thuộc ở Season 1. Khả năng improvise, đọc không khí, tạo kết nối cảm xúc của anh sẽ là keo dán giữa phần bếp núc và phần biểu diễn.</p>
+        <div class="cast-spark">Thử thách cho Duy Khánh: MC không có script, anh sẽ phải dẫn dắt buổi tối bằng những gì học được trong ngày về nhã nhạc và Huế. Vừa tạo nên thử thách khó đoán dễ gây hài, vừa tạo cơ hội cho Duy Khánh thể hiện sự khéo léo của một MC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. HOA SỐ HÓA -->
+<section class="section" id="hoa-so-hoa">
+  <div class="s-marker">Key Moment · VCB DigiBank</div>
+  <h2>Hoa số hóa –<br><em>giải pháp sinh ra từ câu chuyện</em></h2>
+
+  <div class="vcb-steps">
+    <div class="vcb-line"></div>
+    <div class="vcb-step">
+      <div class="vcb-dot">1</div>
+      <div class="vcb-content">
+        <div class="vcb-title">Nút thắt thực tế (đặt trước khi lên thuyền)</div>
+        <div class="vcb-desc">Dàn cast đi chợ sáng: khu chợ không nhận chuyển khoản, dàn cast không mang tiền mặt, tạo situation trớ trêu: dàn cast loay hoay chạy đi xin đổi tiền. Tình huống sẽ gieo hạt cho câu hỏi lớn hơn: khi cả xã hội đã quen cashless, điều gì xảy ra với những nghi thức cần tiền mặt?</div>
+      </div>
+    </div>
+    <div class="vcb-step">
+      <div class="vcb-dot">2</div>
+      <div class="vcb-content">
+        <div class="vcb-title">Khám phá truyền thống</div>
+        <div class="vcb-desc">BCN ngồi với nghệ nhân, nghe câu chuyện về hoa cài tiền trong lịch sử biểu diễn trên sông Hương. Không phải "đây là cách tip" – mà là "đây là cách khán giả nói lên tiếng lòng." Trao cho truyền thống phẩm giá đúng với giá trị của nó.</div>
+      </div>
+    </div>
+    <div class="vcb-step">
+      <div class="vcb-dot">3</div>
+      <div class="vcb-content">
+        <div class="vcb-title">Dàn cast đặt vấn đề</div>
+        <div class="vcb-desc">Sau khi nghe về hoa cài tiền và trải qua situation chợ buổi sáng, cast tự đặt câu hỏi: "làm sao để khi người ta muốn cài hoa, họ vẫn làm được dù không có tiền mặt?".</div>
+      </div>
+    </div>
+    <div class="vcb-step">
+      <div class="vcb-dot">4</div>
+      <div class="vcb-content">
+        <div class="vcb-title">Giới thiệu giải pháp: "Hoa vật lý, giao dịch số"</div>
+        <div class="vcb-desc">Dàn cast thiết kế: hoa thật có tag in QR VCB DigiBank. Người muốn tặng lấy hoa → scan QR → tip số. Hành động vật lý – cầm hoa, trao hoa – được bảo toàn hoàn toàn. Chỉ có giao dịch là số hóa.</div>
+      </div>
+    </div>
+    <div class="vcb-step">
+      <div class="vcb-dot">5</div>
+      <div class="vcb-content">
+        <div class="vcb-title">Phát triển thêm từ truyền thống: Souvenir hai chiều</div>
+        <div class="vcb-desc">Sau khi banking khán giả có thể giữ lại tag. Dàn cast chuẩn bị những chiếc tag có hình hoa hồng hoặc biểu tượng liên quan đến Huế,ghi những câu hay về nhã nhạc hay sông Hương. Sau khi tip khán giả có thể mang về nhà một mảnh ký ức Huế. Nghệ nhân nhận tri ân, người xem nhận kỷ vật → tạo nên trao đổi văn hóa hai chiều.</div>
+      </div>
+    </div>
+    <div class="vcb-step">
+      <div class="vcb-dot">6</div>
+      <div class="vcb-content">
+        <div class="vcb-title">Landing cảm xúc</div>
+        <div class="vcb-desc">Khi Duy Khánh giới thiệu hoa QR, anh sẽ không nói "Mời quý khách tip cho nghệ nhân" mà nên phasing theo kiểu <em>"Đêm nay, nếu tiếng nhạc làm bạn muốn nói điều gì đó, thì hãy trao tâm tư vào cánh hoa."</em> Cảm xúc trở thành nội dung, NTT VCB là phương tiện. Logo VCB xuất hiện sau khi rose card được trao.</div>
+      </div>
+  
+     <div class="callout">
+    <div class="callout-label">Framing cốt lõi</div>
+    <div class="callout-text">Cần tránh xa bất kỳ lối framing nào có thể khiến hiểu nhầm thành Nghệ nhân xin tiền của khán giả. Câu chuyện cốt lõi phải xoay quanh nghi thức cần được giữ lại cho dù xã hội đã đổi thay. VCB là hạ tầng cho nghi thức chứ không phải người cứu nghệ nhân.</div>
+ 
+     </div>
+  </div>
+  </div>
+</section>
+
+<!-- 6. ĐẠI SỨ -->
+<section class="section" id="dai-su">
+  <div class="s-marker">Đại Sứ Mỹ Vị</div>
+  <h2>Không chỉ là những khán giả,<br>các Đại sứ sẽ <em>vào vai Quan khách</em></h2>
+
+  <p>Bối cảnh thuyền rồng cho phép định vị Đại Sứ Mỹ Vị khác hẳn với các tập trước. Họ không ngồi xem mà đóng vai thành các quan khách, được phục vụ với nghi thức. Cast lần này là người hầu cung đình. Đảo ngược vai trò đó tạo dignity cho audience và tạo áp lực hài hước cho cast cùng lúc.</p>
+  <p>Vì Đại Sứ được tuyển qua chương trình VCB, khi họ dùng VCB DigiBank để cài hoa, tạo nên product placement trong vòng khép kín.</p>
+
+  <div class="amb-grid">
+    <div class="amb-card">
+      <div class="amb-num">01</div>
+      <div class="amb-title">Quan Khách Nghi Thức</div>
+      <div class="amb-desc">Được phục vụ như thượng khách cung đình. Cast phục vụ, Đại Sứ thưởng thức. Đảo ngược vai trò quen thuộc của S1.</div>
+    </div>
+    <div class="amb-card">
+      <div class="amb-num">02</div>
+      <div class="amb-title">Ban Thẩm Vị Ẩm Thực</div>
+      <div class="amb-desc">Nhận xét chân thật về món Huế của cast – dù ngon hay dở thì chân thật chính là DNA của show.</div>
+    </div>
+    <div class="amb-card">
+      <div class="amb-num">03</div>
+      <div class="amb-title">Người Khai Trương Hoa QR</div>
+      <div class="amb-desc">Người đầu tiên scan QR hoa cài tiền và nhận rose card souvenir – họ là người mở đầu một nghi thức mới. Cần trao moment đó một cách trang trọng.</div>
+    </div>
+  </div>
+
+  <p>Cảm ơn Quý công ty đã đọc, đây chỉ là ý tưởng đề xuất thô sơ được tôi triển khai với mong muốn được thể hiện tâm huyết của bản thân với vị trí Biên Kịch tại Yeah1. Tuy không nắm tường tận cơ chế vận hành và cách xây dựng kịch bản của nội bộ công ty Yeah1, tôi tự tin vào khả năng học hỏi nhanh của bản thân và đam mê muốn được cống hiến trong các dự án đa chiều của công ty. Rất mong được Quý công ty xem xét.<br>– Felix Phan</p>
+</section>
+
+<footer class="doc-footer">
+  <span>Quán Nhà Haha · Huế Episode Treatment</span>
+  <span style="color:var(--gold);opacity:.5">❧</span>
+  <span>Yeah1 × VCB DigiBank · 2026 · Confidential</span>
+</footer>
+
+<script>
+const sections=document.querySelectorAll('section[id]');
+const dots=document.querySelectorAll('.sidenav a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      dots.forEach(d=>d.classList.remove('active'));
+      const a=document.querySelector(`.sidenav a[href="#${e.target.id}"]`);
+      if(a)a.classList.add('active');
+    }
+  });
+},{threshold:.4});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

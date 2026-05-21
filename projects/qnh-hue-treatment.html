@@ -141,6 +141,13 @@ strong{font-weight:500;color:var(--ink)}
 .back-btn:hover{color:var(--gold);border-color:rgba(184,146,42,.4)}
 .back-btn::before{content:'←';font-size:14px}
 @media(max-width:600px){.back-wrap{padding:40px 28px 0}}
+
+/* COVER HERO IMAGE */
+.cover-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.cover-text{}
+.cover-img-wrap{aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(184,146,42,.2)}
+.cover-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
+@media(max-width:900px){.cover-inner{grid-template-columns:1fr}.cover-img-wrap{order:-1}} 
 </style>
 </head>
 <body>

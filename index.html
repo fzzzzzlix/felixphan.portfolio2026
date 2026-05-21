@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Felix Phan · Story Architect · Portfolio 2026</title>
+<meta name="description" content="Felix Phan — Story Architect. Portfolio of script writing, short film, concept planning, and on-set production for VinFast, MAGGI, Hapacol, PNJ, BUV, Google, IKEA, Fanta, and Lume.">
+
+<!-- Google Fonts: Playfair Display + DM Sans (same family as QNH treatment) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — Felix Phan Portfolio 2026
+   Palette: Dark red (signature) on warm paper · Playfair + DM Sans
+   ============================================================ */
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#f7f3ec;
+  --paper-warm:#efe9dc;
+  --paper-deeper:#e8e0cf;
+  --ink:#1a1410;
+  --ink-soft:#38302a;
+  --red:#7a1c1c;           /* Felix's signature dark red */
+  --red-deep:#5a1414;
+  --red-pale:#a85050;
+  --gold:#b8922a;
+  --gold-pale:#e8d9b0;
+  --muted:#7a6e60;
+  --border:#d8cdb8;
+  --border-soft:#e8ddc8;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  font-size:15.5px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+::selection{background:var(--red);color:var(--paper)}
+a{color:inherit;text-decoration:none}
+
+/* ============================================================
+   SIDE NAVIGATION — same dots as QNH treatment
+   ============================================================ */
+.sidenav{position:fixed;top:50%;left:24px;transform:translateY(-50%);display:flex;flex-direction:column;gap:11px;z-index:100}
+.sidenav a{width:6px;height:6px;border-radius:50%;background:var(--border);display:block;transition:all .35s ease;position:relative}
+.sidenav a:hover,.sidenav a.active{background:var(--red);transform:scale(1.6)}
+.sidenav a::after{content:attr(data-label);position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red);opacity:0;white-space:nowrap;transition:opacity .25s;font-weight:500}
+.sidenav a:hover::after{opacity:1}
+@media(max-width:900px){.sidenav{display:none}}
+
+/* ============================================================
+   TOP MASTHEAD STRIP — magazine signature
+   ============================================================ */
+.masthead{position:fixed;top:0;left:0;right:0;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);background:linear-gradient(to bottom,var(--paper) 60%,rgba(247,243,236,0));z-index:90;font-weight:500;pointer-events:none}
+.masthead-l{color:var(--red)}
+.masthead-r{color:var(--muted)}
+.masthead a{pointer-events:auto;border-bottom:1px solid transparent;transition:border-color .2s}
+.masthead a:hover{border-bottom-color:var(--red)}
+@media(max-width:600px){.masthead{padding:14px 20px;font-size:9px;letter-spacing:2px}.masthead-r span:not(.year){display:none}}
+
+/* ============================================================
+   HERO — Editorial cover
+   ============================================================ */
+.hero{min-height:100vh;padding:120px 60px 80px;position:relative;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 20% 80%,rgba(122,28,28,.04) 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 90% 30%,rgba(184,146,42,.05) 0%,transparent 60%);pointer-events:none}
+.hero-stamp{position:absolute;top:80px;right:60px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl;line-height:2.4}
+.hero-l{position:relative;z-index:2}
+.hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:32px;font-weight:500;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::after{content:'';flex:1;max-width:80px;height:1px;background:linear-gradient(to right,var(--red),transparent)}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(64px,11vw,168px);font-weight:400;line-height:.92;letter-spacing:-3px;margin-bottom:8px;color:var(--ink)}
+.hero-name .last{color:var(--red);font-style:italic;font-weight:500}
+.hero-role{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,30px);font-weight:400;font-style:italic;color:var(--ink-soft);margin-bottom:48px;letter-spacing:-.3px}
+.hero-role .pronouns{font-family:'DM Sans',sans-serif;font-style:normal;font-size:14px;color:var(--muted);letter-spacing:1px;margin-left:14px;vertical-align:middle}
+.hero-rule{width:88px;height:1px;background:linear-gradient(to right,var(--red),transparent);margin-bottom:32px}
+.hero-premise{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2vw,22px);line-height:1.55;color:var(--ink-soft);max-width:540px;font-weight:400}
+.hero-premise em{color:var(--red);font-style:italic;font-weight:500}
+
+/* Hero right — portrait */
+.hero-r{position:relative;z-index:2;align-self:end}
+.hero-portrait{position:relative;width:100%;aspect-ratio:4/5;background:var(--paper-warm) center/cover no-repeat;border:1px solid var(--border)}
+.hero-portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-portrait-cap{margin-top:14px;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.8}
+.hero-portrait-cap strong{color:var(--red);font-weight:500}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:110px 28px 60px;gap:48px}
+  .hero-stamp{display:none}
+  .hero-r{order:-1;max-width:280px}
+}
+
+/* ============================================================
+   INDEX / TABLE OF CONTENTS — magazine TOC
+   ============================================================ */
+.index-sec{padding:120px 60px;border-top:1px solid var(--border);background:var(--paper-warm);position:relative;overflow:hidden}
+.index-bg{position:absolute;font-family:'Playfair Display',serif;font-size:clamp(180px,28vw,420px);font-weight:400;color:var(--ink);opacity:.025;line-height:.9;letter-spacing:-8px;top:50%;right:-40px;transform:translateY(-50%);pointer-events:none;font-style:italic}
+.index-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:18px;display:flex;align-items:center;gap:14px;font-weight:500}
+.section-label::after{content:'';flex:1;max-width:160px;height:1px;background:linear-gradient(to right,var(--red),transparent)}
+.index-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,56px);font-weight:400;line-height:1.05;margin-bottom:60px;letter-spacing:-.8px}
+.index-title em{color:var(--red);font-style:italic}
+.toc{display:flex;flex-direction:column;gap:0;max-width:780px}
+.toc-row{display:grid;grid-template-columns:60px 1fr auto 60px;gap:24px;align-items:baseline;padding:28px 0;border-bottom:1px solid var(--border);transition:transform .3s ease;cursor:pointer}
+.toc-row:first-child{border-top:1px solid var(--border)}
+.toc-row:hover{transform:translateX(6px)}
+.toc-row:hover .toc-h{color:var(--red)}
+.toc-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--gold);font-style:italic}
+.toc-h{font-family:'Playfair Display',serif;font-size:clamp(20px,2.4vw,28px);font-weight:500;letter-spacing:-.3px;transition:color .25s;line-height:1.2}
+.toc-h-sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;font-family:'DM Sans',sans-serif;font-weight:400}
+.toc-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:right}
+.toc-pg{font-family:'Playfair Display',serif;font-size:18px;color:var(--red);font-style:italic;text-align:right;font-weight:400}
+@media(max-width:700px){.index-sec{padding:80px 28px}.toc-row{grid-template-columns:40px 1fr 40px;gap:18px;padding:22px 0}.toc-tag{display:none}}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about-sec{padding:120px 60px;max-width:1100px;margin:0 auto}
+.about-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start}
+.about-lead{font-family:'Playfair Display',serif;font-size:clamp(22px,2.6vw,30px);font-weight:400;line-height:1.4;letter-spacing:-.4px;color:var(--ink)}
+.about-lead em{color:var(--red);font-style:italic}
+.about-body p{margin-bottom:20px;color:var(--ink-soft);font-size:15.5px;line-height:1.75}
+.about-body p:last-child{margin-bottom:0}
+.about-body strong{font-weight:500;color:var(--ink)}
+.about-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:32px 40px;margin-top:48px;padding-top:36px;border-top:1px solid var(--border)}
+.fact-k{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:6px;font-weight:500}
+.fact-v{font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);font-weight:500;line-height:1.4}
+.fact-v small{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);display:block;font-weight:300;margin-top:2px;letter-spacing:.3px}
+@media(max-width:900px){.about-sec{padding:80px 28px}.about-grid{grid-template-columns:1fr;gap:40px}.about-facts{grid-template-columns:1fr 1fr;gap:24px}}
+
+/* ============================================================
+   FEATURED WORK — QNH (the centerpiece)
+   ============================================================ */
+.featured-sec{background:var(--ink);color:var(--paper);padding:120px 60px;position:relative;overflow:hidden}
+.featured-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 30%,rgba(122,28,28,.18) 0%,transparent 60%),radial-gradient(ellipse 50% 40% at 10% 80%,rgba(184,146,42,.08) 0%,transparent 60%);pointer-events:none}
+.featured-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+.featured-marker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px;font-weight:500}
+.featured-marker::after{content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(to right,var(--gold),transparent)}
+.featured-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,68px);font-weight:400;line-height:1;margin-bottom:14px;letter-spacing:-1.2px;color:var(--paper)}
+.featured-title em{color:var(--gold);font-style:italic}
+.featured-sub{font-family:'Playfair Display',serif;font-size:clamp(16px,1.8vw,20px);font-style:italic;color:rgba(247,243,236,.55);margin-bottom:60px;letter-spacing:-.2px}
+.featured-card{display:grid;grid-template-columns:1.3fr 1fr;gap:0;background:rgba(247,243,236,.03);border:1px solid rgba(216,205,184,.1);transition:all .4s ease;text-decoration:none;color:inherit;cursor:pointer;position:relative;overflow:hidden}
+.featured-card:hover{border-color:rgba(184,146,42,.4);transform:translateY(-4px)}
+.featured-card:hover .featured-img{transform:scale(1.02)}
+.featured-card:hover .open-btn{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.featured-img-wrap{overflow:hidden;background:var(--paper-warm)}
+.featured-img{width:100%;height:100%;object-fit:cover;display:block;min-height:400px;transition:transform .8s ease}
+.featured-info{padding:56px 52px;display:flex;flex-direction:column;justify-content:center}
+.featured-eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:500}
+.featured-h{font-family:'Playfair Display',serif;font-size:clamp(24px,2.6vw,32px);font-weight:600;line-height:1.2;margin-bottom:18px;color:var(--paper);letter-spacing:-.4px}
+.featured-h em{color:var(--gold-pale);font-style:italic;font-weight:400}
+.featured-desc{font-size:14px;color:rgba(247,243,236,.65);line-height:1.75;margin-bottom:24px}
+.featured-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.tag{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:6px 12px;border:1px solid rgba(184,146,42,.3);background:rgba(184,146,42,.05)}
+.open-btn{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:14px 24px;border:1px solid var(--gold);color:var(--gold);font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;transition:all .3s ease;background:transparent}
+.open-btn-arr{transition:transform .3s ease;font-size:16px;line-height:1}
+.featured-card:hover .open-btn-arr{transform:translateX(4px)}
+@media(max-width:900px){.featured-sec{padding:80px 28px}.featured-card{grid-template-columns:1fr}.featured-info{padding:36px 28px}.featured-img{min-height:240px}}
+
+/* ============================================================
+   PILLAR SECTIONS — the three proof pillars
+   ============================================================ */
+.pillar{padding:140px 60px;max-width:1200px;margin:0 auto;position:relative}
+.pillar+.pillar{padding-top:0}
+.pillar-head{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:72px;padding-bottom:36px;border-bottom:1px solid var(--border)}
+.pillar-num{font-family:'Playfair Display',serif;font-size:clamp(80px,12vw,160px);font-weight:400;line-height:.9;color:var(--red);font-style:italic;letter-spacing:-4px}
+.pillar-meta{padding-bottom:18px}
+.pillar-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red);margin-bottom:18px;font-weight:500}
+.pillar-h{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,46px);font-weight:400;line-height:1.05;letter-spacing:-.8px;margin-bottom:16px}
+.pillar-h em{color:var(--red);font-style:italic}
+.pillar-tagline{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;color:var(--muted);line-height:1.5;max-width:520px}
+.pillar-intro{max-width:680px;margin:0 0 64px;color:var(--ink-soft);font-size:15.5px;line-height:1.75}
+.pillar-intro strong{font-weight:500;color:var(--ink)}
+
+/* Group label (sub-heading inside a pillar) */
+.group-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin:60px 0 24px;font-weight:500;display:flex;align-items:center;gap:14px}
+.group-label:first-of-type{margin-top:0}
+.group-label::after{content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(to right,var(--gold),transparent)}
+
+/* Work grid */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px 40px}
+.work-grid.cols-3{grid-template-columns:repeat(3,1fr);gap:36px 28px}
+@media(max-width:900px){.pillar{padding:80px 28px}.pillar-head{grid-template-columns:1fr;gap:24px;margin-bottom:48px}.pillar-num{font-size:88px}.work-grid,.work-grid.cols-3{grid-template-columns:1fr;gap:40px}}
+
+.work{display:flex;flex-direction:column;position:relative;transition:transform .3s ease}
+.work:hover{transform:translateY(-3px)}
+.work:hover .work-img{filter:grayscale(0);transform:scale(1.015)}
+.work:hover .work-title{color:var(--red)}
+.work-img-wrap{aspect-ratio:8/5;background:var(--paper-warm);overflow:hidden;margin-bottom:18px;border:1px solid var(--border)}
+.work-img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.15);transition:all .5s ease}
+.work-eyebrow{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:500}
+.work-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;line-height:1.25;letter-spacing:-.3px;margin-bottom:8px;transition:color .25s}
+.work-meta{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.work-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.65}
+
+.work.cols-3 .work-title{font-size:18px}
+
+/* ============================================================
+   PULL QUOTE BANDS — between pillars
+   ============================================================ */
+.quote-band{padding:120px 60px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--paper-warm);position:relative;overflow:hidden}
+.quote-band::before{content:'"';position:absolute;font-family:'Playfair Display',serif;font-size:520px;font-weight:700;color:var(--red);opacity:.04;line-height:1;top:-80px;left:6%;pointer-events:none}
+.quote-inner{max-width:900px;margin:0 auto;position:relative;z-index:2;text-align:center}
+.quote-text{font-family:'Playfair Display',serif;font-size:clamp(22px,3.2vw,38px);font-weight:400;font-style:italic;line-height:1.35;color:var(--ink);letter-spacing:-.5px;margin-bottom:32px}
+.quote-text em{color:var(--red);font-style:italic;font-weight:500}
+.quote-attr{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);font-weight:500}
+@media(max-width:700px){.quote-band{padding:72px 28px}.quote-band::before{font-size:280px}}
+
+/* ============================================================
+   PERSONAL — small but warm
+   ============================================================ */
+.personal-sec{padding:140px 60px;max-width:1200px;margin:0 auto}
+@media(max-width:900px){.personal-sec{padding:80px 28px}}
+
+/* ============================================================
+   CONTACT / COLOPHON
+   ============================================================ */
+.contact-sec{background:var(--ink);color:var(--paper);padding:120px 60px;position:relative;overflow:hidden}
+.contact-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 30% 70%,rgba(122,28,28,.2) 0%,transparent 60%),radial-gradient(ellipse 40% 30% at 80% 20%,rgba(184,146,42,.08) 0%,transparent 60%);pointer-events:none}
+.contact-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.contact-marker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red-pale);margin-bottom:24px;font-weight:500;display:flex;align-items:center;gap:14px}
+.contact-marker::after{content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(to right,var(--red-pale),transparent)}
+.contact-h{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,92px);font-weight:400;line-height:1;letter-spacing:-1.5px;margin-bottom:48px;color:var(--paper)}
+.contact-h em{color:var(--red-pale);font-style:italic}
+.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start;margin-top:60px;padding-top:48px;border-top:1px solid rgba(216,205,184,.15)}
+.contact-lead{font-family:'Playfair Display',serif;font-size:clamp(18px,2.2vw,24px);font-style:italic;line-height:1.5;color:rgba(247,243,236,.78);font-weight:400}
+.contact-lead em{color:var(--gold-pale);font-style:italic}
+.contact-rows{display:flex;flex-direction:column;gap:18px}
+.contact-row{display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(216,205,184,.12)}
+.contact-k{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:500}
+.contact-v{font-family:'Playfair Display',serif;font-size:17px;color:var(--paper);font-weight:400}
+.contact-v a{border-bottom:1px solid transparent;transition:border-color .25s}
+.contact-v a:hover{border-bottom-color:var(--gold-pale);color:var(--gold-pale)}
+.colophon{margin-top:80px;padding-top:36px;border-top:1px solid rgba(216,205,184,.1);display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(247,243,236,.4);font-weight:400;gap:24px;flex-wrap:wrap}
+.colophon span{display:flex;align-items:center;gap:14px}
+.colophon-mark{color:var(--gold);opacity:.6;font-size:14px;line-height:1}
+@media(max-width:900px){.contact-sec{padding:80px 28px}.contact-grid{grid-template-columns:1fr;gap:40px}.contact-row{grid-template-columns:80px 1fr;gap:14px}.colophon{flex-direction:column;text-align:center;gap:14px}}
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(24px);transition:all .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.08s}
+.reveal-delay-2{transition-delay:.16s}
+.reveal-delay-3{transition-delay:.24s}
+.reveal-delay-4{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     MASTHEAD — top strip (magazine header)
+     ============================================================ -->
+<div class="masthead">
+  <div class="masthead-l">Felix Phan · Portfolio 2026</div>
+  <div class="masthead-r"><span>Issue No. 01 · </span><span class="year">May 2026</span></div>
+</div>
+
+<!-- ============================================================
+     SIDE DOT NAV — same pattern as QNH treatment
+     ============================================================ -->
+<nav class="sidenav" id="sidenav">
+  <a href="#hero" data-label="Cover"></a>
+  <a href="#index" data-label="Index"></a>
+  <a href="#about" data-label="About"></a>
+  <a href="#featured" data-label="Featured"></a>
+  <a href="#pillar-01" data-label="Story"></a>
+  <a href="#pillar-02" data-label="Culture"></a>
+  <a href="#pillar-03" data-label="Production"></a>
+  <a href="#personal" data-label="Personal"></a>
+  <a href="#contact" data-label="Contact"></a>
+</nav>
+
+<!-- ============================================================
+     1 · HERO — Editorial cover
+     EDIT: tagline, premise quote, portrait caption
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stamp">Story Architect · Script · Concept · Production · 2026</div>
+
+  <div class="hero-l">
+    <div class="hero-eyebrow reveal">Portfolio · 2026</div>
+    <h1 class="hero-name reveal reveal-delay-1">
+      Felix<br>
+      <span class="last">Phan</span>
+    </h1>
+    <div class="hero-role reveal reveal-delay-2">
+      Story Architect <span class="pronouns">(they/them)</span>
+    </div>
+    <div class="hero-rule reveal reveal-delay-3"></div>
+    <p class="hero-premise reveal reveal-delay-3">
+      Tôi thiết kế những tình huống ở <em>giao điểm giữa di sản văn hóa Việt Nam và văn hóa trẻ đương đại</em> — nơi câu chuyện không chỉ để xem, mà để ngẫm, để bàn luận, để ghi nhớ.
+    </p>
+  </div>
+
+  <div class="hero-r reveal reveal-delay-2">
+    <div class="hero-portrait">
+      <!-- REPLACE: images/hero-portrait.jpg (portrait 4:5) -->
+      <img src="images/hero-portrait.jpg" alt="Felix Phan portrait">
+    </div>
+    <div class="hero-portrait-cap">
+      Hồ Chí Minh City · <strong>2026</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     2 · INDEX — Magazine table of contents
+     ============================================================ -->
+<section class="index-sec" id="index">
+  <div class="index-bg">Index</div>
+  <div class="index-inner">
+    <div class="section-label reveal">Mục Lục · Contents</div>
+    <h2 class="index-title reveal reveal-delay-1">
+      Một portfolio,<br><em>ba câu trả lời.</em>
+    </h2>
+
+    <div class="toc">
+      <a href="#featured" class="toc-row reveal">
+        <div class="toc-num">⁕</div>
+        <div>
+          <div class="toc-h">Bếp Haha Gặp Bếp Cung Đình</div>
+          <div class="toc-h-sub">Featured Treatment · Quán Nhà Haha × VCB</div>
+        </div>
+        <div class="toc-tag">Yeah1 · 2026</div>
+        <div class="toc-pg">04</div>
+      </a>
+
+      <a href="#pillar-01" class="toc-row reveal reveal-delay-1">
+        <div class="toc-num">I</div>
+        <div>
+          <div class="toc-h">Story Architecture</div>
+          <div class="toc-h-sub">Thiết kế cấu trúc · TVC · Phim ngắn · Podcast</div>
+        </div>
+        <div class="toc-tag">7 works</div>
+        <div class="toc-pg">06</div>
+      </a>
+
+      <a href="#pillar-02" class="toc-row reveal reveal-delay-2">
+        <div class="toc-num">II</div>
+        <div>
+          <div class="toc-h">Cultural Intelligence</div>
+          <div class="toc-h-sub">Đọc văn hóa Việt · Concept · Editorial · Direction</div>
+        </div>
+        <div class="toc-tag">6 works</div>
+        <div class="toc-pg">10</div>
+      </a>
+
+      <a href="#pillar-03" class="toc-row reveal reveal-delay-3">
+        <div class="toc-num">III</div>
+        <div>
+          <div class="toc-h">Production Fluency</div>
+          <div class="toc-h-sub">Sống được trên trường quay · On-set · Social · Ops</div>
+        </div>
+        <div class="toc-tag">4 works</div>
+        <div class="toc-pg">14</div>
+      </a>
+
+      <a href="#personal" class="toc-row reveal reveal-delay-4">
+        <div class="toc-num">⁂</div>
+        <div>
+          <div class="toc-h">Personal Creative Life</div>
+          <div class="toc-h-sub">Những điều mình làm khi không ai trả tiền</div>
+        </div>
+        <div class="toc-tag">2 works</div>
+        <div class="toc-pg">18</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3 · ABOUT
+     EDIT: positioning paragraphs, facts block
+     ============================================================ -->
+<section class="about-sec" id="about">
+  <div class="section-label reveal">Giới Thiệu · About</div>
+  <div class="about-grid">
+    <div class="reveal reveal-delay-1">
+      <p class="about-lead">
+        Felix là một <em>Story Architect</em> — viết kịch bản đa định dạng, đọc văn hóa như một đòn bẩy chiến lược, và điều phối được dự án từ trang giấy đến trường quay.
+      </p>
+    </div>
+
+    <div class="reveal reveal-delay-2">
+      <div class="about-body">
+        <p>
+          <strong>Ứng viên song bằng</strong> (Quản trị Kinh doanh tại NEU + Truyền thông Chuyên nghiệp tại RMIT) — đã hoàn thành chương trình học của cả hai và sẵn sàng làm full-time. Hơn 4 năm dẫn dắt các đội đa chức năng lên tới 54 thành viên.
+        </p>
+        <p>
+          Kinh nghiệm script trải dài qua <strong>TVC storyboard, phim ngắn, và podcast</strong> cho VinFast, MAGGI, Hapacol, PNJ, BUV; ý tưởng & art direction cho Google, IKEA, Fanta, Lume. <strong>Giải Nhất</strong> cuộc thi phim ngắn học đường với vai trò biên kịch, đạo diễn, dựng phim.
+        </p>
+        <p>
+          Mang đến tư duy kể chuyện bằng đòn bẩy văn hóa Việt, kỹ năng biên kịch đa định dạng, và khả năng điều phối dự án sản xuất — không chỉ viết được, mà còn theo được câu chuyện đến tận on-air.
+        </p>
+
+        <div class="about-facts">
+          <div>
+            <div class="fact-k">Hiện tại</div>
+            <div class="fact-v">Hồ Chí Minh<small>Vietnam</small></div>
+          </div>
+          <div>
+            <div class="fact-k">Available</div>
+            <div class="fact-v">Full-time<small>Tháng 7, 2026 trở đi</small></div>
+          </div>
+          <div>
+            <div class="fact-k">Bằng cấp</div>
+            <div class="fact-v">RMIT · NEU<small>Communication + BBA</small></div>
+          </div>
+          <div>
+            <div class="fact-k">Clients đã làm</div>
+            <div class="fact-v">9 brands<small>VinFast · MAGGI · Hapacol · PNJ · BUV · Google · IKEA · Fanta · Lume</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4 · FEATURED — QNH Huế Treatment (THE CENTERPIECE)
+     This card links to the standalone QNH HTML in /projects/
+     ============================================================ -->
+<section class="featured-sec" id="featured">
+  <div class="featured-bg"></div>
+  <div class="featured-inner">
+    <div class="featured-marker reveal">Featured Work · Tác Phẩm Tâm Đắc</div>
+    <h2 class="featured-title reveal reveal-delay-1">
+      Bếp Haha<br>Gặp Bếp <em>Cung Đình</em>
+    </h2>
+    <p class="featured-sub reveal reveal-delay-2">Một tập đặc biệt Huế cho Quán Nhà Haha · Yeah1 × VCB DigiBank · 2026</p>
+
+    <a href="projects/qnh-hue-treatment.html" class="featured-card reveal reveal-delay-3" target="_blank" rel="noopener">
+      <div class="featured-img-wrap">
+        <!-- REPLACE: images/qnh-cover.jpg (cover image 16:9) -->
+        <img src="images/qnh-cover.jpg" alt="QNH Huế Treatment Cover" class="featured-img">
+      </div>
+      <div class="featured-info">
+        <div class="featured-eyebrow">Episode Treatment · 12 sections</div>
+        <h3 class="featured-h">
+          <em>"Khi xã hội đã quen cashless,<br>điều gì xảy ra với những<br>nghi thức cần tiền mặt?"</em>
+        </h3>
+        <p class="featured-desc">
+          Treatment đầy đủ cho một tập Quán Nhà Haha quay tại Huế: bữa tối nhã nhạc cung đình trên thuyền rồng, với hoa cài tiền truyền thống được tái thiết kế thành "hoa số hóa" qua VCB DigiBank. Bao gồm concept, bối cảnh, ba hồi, breakdown 5 cast, tích hợp sponsor 6 bước, và 10 phương án tên tập.
+        </p>
+        <div class="featured-tags">
+          <span class="tag">Situation Design</span>
+          <span class="tag">Unscripted</span>
+          <span class="tag">Sponsor Integration</span>
+          <span class="tag">Văn Hóa Việt</span>
+        </div>
+        <div class="open-btn">
+          <span>Mở Treatment</span>
+          <span class="open-btn-arr">→</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     5 · PILLAR 01 — STORY ARCHITECTURE
+     EDIT: each work card (title, meta, description, image)
+     ============================================================ -->
+<section class="pillar" id="pillar-01">
+  <div class="pillar-head">
+    <div class="pillar-num reveal">I</div>
+    <div class="pillar-meta reveal reveal-delay-1">
+      <div class="pillar-eyebrow">Tập I · Pillar 01</div>
+      <h2 class="pillar-h">Story <em>Architecture</em></h2>
+      <p class="pillar-tagline">Tôi thiết kế được narrative, không chỉ viết script.</p>
+    </div>
+  </div>
+
+  <p class="pillar-intro reveal">
+    <strong>Câu hỏi tôi trả lời ở đây:</strong> Liệu tôi có khả năng kiến tạo cấu trúc câu chuyện — từ ý tưởng, qua outline, đến script chi tiết — cho nhiều định dạng khác nhau? Từ TVC 30 giây cho thương hiệu lớn, đến phim ngắn độc lập, đến podcast long-form, đến treatment cho reality show. Mỗi định dạng đòi hỏi một kiến trúc kể chuyện khác nhau — và tôi đã chứng minh mình đọc được kiến trúc đó.
+  </p>
+
+  <!-- === 1.1 TVC STORYBOARDS === -->
+  <div class="group-label reveal">1.1 · TVC Storyboards</div>
+  <div class="work-grid">
+
+    <div class="work reveal">
+      <div class="work-img-wrap">
+        <img src="images/tvc-buv.jpg" alt="BUV TVC storyboard" class="work-img">
+      </div>
+      <div class="work-eyebrow">TVC · Education Brand</div>
+      <h3 class="work-title">BUV — British University Vietnam</h3>
+      <div class="work-meta">Biên Kịch · Storyboard · 2025</div>
+      <p class="work-desc">[EDIT] Mô tả ngắn 2–3 dòng về vai trò và cách tiếp cận trên TVC này — câu chuyện gì, đối tượng nào, kết quả như thế nào.</p>
+    </div>
+
+    <div class="work reveal reveal-delay-1">
+      <div class="work-img-wrap">
+        <img src="images/tvc-hapacol.jpg" alt="Hapacol TVC storyboard" class="work-img">
+      </div>
+      <div class="work-eyebrow">TVC · Pharmaceutical</div>
+      <h3 class="work-title">Hapacol — DHG Pharma</h3>
+      <div class="work-meta">Biên Kịch · Storyboard · 2024</div>
+      <p class="work-desc">[EDIT] Mô tả ngắn 2–3 dòng — bối cảnh brief, hướng tiếp cận, sản phẩm cuối.</p>
+    </div>
+
+    <div class="work reveal">
+      <div class="work-img-wrap">
+        <img src="images/tvc-maggi.jpg" alt="MAGGI Tet 2026 storyboard" class="work-img">
+      </div>
+      <div class="work-eyebrow">TVC · FMCG · Tet Campaign</div>
+      <h3 class="work-title">MAGGI — Tết 2026</h3>
+      <div class="work-meta">Biên Kịch · Storyboard · 2025</div>
+      <p class="work-desc">[EDIT] Mô tả về cách approach Tết — văn hóa, gia đình, vị giác — và đóng góp của bạn trong storyboard.</p>
+    </div>
+
+    <div class="work reveal reveal-delay-1">
+      <div class="work-img-wrap">
+        <img src="images/tvc-boardgame.jpg" alt="Boardgame Tet 2025 storyboard" class="work-img">
+      </div>
+      <div class="work-eyebrow">TVC · Boardgame · Tet 2025</div>
+      <h3 class="work-title">Boardgame Tết 2025</h3>
+      <div class="work-meta">Biên Kịch · Storyboard · 2024</div>
+      <p class="work-desc">[EDIT] Mô tả ngắn về câu chuyện và cách tiếp cận.</p>
+    </div>
+
+  </div>
+
+  <!-- === 1.2 SHORT FILM === -->
+  <div class="group-label reveal">1.2 · Short Film</div>
+  <div class="work-grid">
+
+    <div class="work reveal">
+      <div class="work-img-wrap">
+        <img src="images/film-yenhoa.jpg" alt="Yen Hoa High School short film" class="work-img">
+      </div>
+      <div class="work-eyebrow">Short Film · 1st Prize Winner</div>
+      <h3 class="work-title">"Tôi 18 · Giấc Chiêm Bao" — THPT Yên Hòa</h3>
+      <div class="work-meta">Biên Kịch · Đạo Diễn · Dựng Phim · 2022</div>
+      <p class="work-desc">[EDIT] Brief về phim ngắn đoạt Giải Nhất — chủ đề, cách kể, thành tích.</p>
+    </div>
+
+    <div class="work reveal reveal-delay-1">
+      <div class="work-img-wrap">
+        <img src="images/film-pnj.jpg" alt="PNJ Wedding short film" class="work-img">
+      </div>
+      <div class="work-eyebrow">Short Film · Brand · Wedding</div>
+      <h3 class="work-title">PNJ — Wedding Film</h3>
+      <div class="work-meta">Biên Kịch · 2024</div>
+      <p class="work-desc">[EDIT] Mô tả về dự án PNJ Wedding — cảm xúc, văn hóa, cách kể.</p>
+    </div>
+
+  </div>
+
+  <!-- === 1.3 PODCAST === -->
+  <div class="group-label reveal">1.3 · Podcast</div>
+  <div class="work-grid">
+
+    <div class="work reveal">
+      <div class="work-img-wrap">
+        <img src="images/podcast-energy.jpg" alt="Sustainable Energy podcast" class="work-img">
+      </div>
+      <div class="work-eyebrow">Long-form · Sustainability</div>
+      <h3 class="work-title">Sustainable Energy — Podcast Series</h3>
+      <div class="work-meta">Biên Kịch · Producer · 2024</div>
+      <p class="work-desc">[EDIT] Brief về podcast năng lượng bền vững — góc nhìn, định dạng, đối tượng nghe.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PULL QUOTE BAND 01
+     ============================================================ -->
+<section class="quote-band">
+  <div class="quote-inner">
+    <p class="quote-text reveal">
+      "Nếu được kể đúng cách, văn hóa <em>khuếch đại cảm xúc</em>, làm giàu cộng đồng khán giả, và đưa những giá trị Việt Nam đi xa hơn."
+    </p>
+    <div class="quote-attr reveal reveal-delay-1">— Felix · From Cover Letter</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6 · PILLAR 02 — CULTURAL INTELLIGENCE
+     ============================================================ -->
+<section class="pillar" id="pillar-02">
+  <div class="pillar-head">
+    <div class="pillar-num reveal">II</div>
+    <div class="pillar-meta reveal reveal-delay-1">
+      <div class="pillar-eyebrow">Tập II · Pillar 02</div>
+      <h2 class="pillar-h">Cultural <em>Intelligence</em></h2>
+      <p class="pillar-tagline">Tôi hiểu người Việt đủ để viết cho họ.</p>
+    </div>
+  </div>
+
+  <p class="pillar-intro reveal">
+    <strong>Câu hỏi tôi trả lời ở đây:</strong> Khả năng đọc văn hóa Việt — không chỉ ở bề mặt món ăn hay trang phục, mà ở những lớp ngầm: cách một thế hệ nghĩ về gia đình, cách phụ nữ Việt định nghĩa lại mình, cách di sản truyền thống chạm vào cuộc sống đương đại. Đây là phần khó nhất để chứng minh trên giấy — nhưng cũng là phần khiến tôi khác biệt nhất.
+  </p>
+
+  <!-- === 2.1 BIG IDEAS & ART DIRECTION === -->
+  <div class="group-label reveal">2.1 · Big Ideas & Art Direction</div>
+  <div class="work-grid cols-3">
+
+    <div class="work cols-3 reveal">
+      <div class="work-img-wrap">
+        <img src="images/concept-google.jpg" alt="Google art direction" class="work-img">
+      </div>
+      <div class="work-eyebrow">Art Direction</div>
+      <h3 class="work-title">Google — Art Direction</h3>
+      <div class="work-meta">Concept · Direction · 2024</div>
+      <p class="work-desc">[EDIT] Brief về dự án art direction cho Google — câu chuyện và cách định hình visual.</p>
+    </div>
+
+    <div class="work cols-3 reveal reveal-delay-1">
+      <div class="work-img-wrap">
+        <img src="images/concept-ikea.jpg" alt="IKEA big idea" class="work-img">
+      </div>
+      <div class="work-eyebrow">Concept · Big Idea</div>
+      <h3 class="work-title">IKEA — Big Idea</h3>
+      <div class="work-meta">Concept · 2024</div>
+      <p class="work-desc">[EDIT] Insight nào về văn hóa sống/không gian Việt đã dẫn đến big idea này.</p>
+    </div>
+
+    <div class="work cols-3 reveal reveal-delay-2">
+      <div class="work-img-wrap">
+        <img src="images/concept-fanta.jpg" alt="Fanta big idea" class="work-img">
+      </div>
+      <div class="work-eyebrow">Concept · Big Idea</div>
+      <h3 class="work-title">Fanta — Big Idea</h3>
+      <div class="work-meta">Concept · 2024</div>
+      <p class="work-desc">[EDIT] Brief về big idea cho Fanta — đọc văn hóa trẻ và translate ra concept.</p>
+    </div>
+
+    <div class="work cols-3 reveal">
+      <div class="work-img-wrap">
+        <img src="images/concept-lume.jpg" alt="Lume big idea" class="work-img">
+      </div>
+      <div class="work-eyebrow">Concept · Big Idea</div>
+      <h3 class="work-title">Lume — Big Idea</h3>
+      <div class="work-meta">Concept · 2024</div>
+      <p class="work-desc">[EDIT] Brief về big idea cho Lume.</p>
+    </div>
+
+  </div>
+
+  <!-- === 2.2 EDITORIAL / MAGAZINE === -->
+  <div class="group-label reveal">2.2 · Editorial</div>
+  <div class="work-grid">
+
+    <div class="work reveal">
+      <div class="work-img-wrap">
+        <img src="images/magazine-gender.jpg" alt="Gender equality magazine" class="work-img">
+      </div>
+      <div class="work-eyebrow">Magazine · Social Commentary</div>
+      <h3 class="work-title">Gender Equality Magazine</h3>
+      <div class="work-meta">Concept · Editorial · 2023</div>
+      <p class="work-desc">[EDIT] Brief về tạp chí — quan điểm xã hội, đối tượng, cách approach.</p>
+    </div>
+
+    <div class="work reveal reveal-delay-1">
+      <div class="work-img-wrap">
+        <img src="images/photoshoots.jpg" alt="Photoshoots" class="work-img">
+      </div>
+      <div class="work-eyebrow">Photo Direction · 3 Shoots</div>
+      <h3 class="work-title">Photoshoots Series</h3>
+      <div class="work-meta">Concept · Direction · 2023–2024</div>
+      <p class="work-desc">[EDIT] Brief về 3 photoshoots — chủ đề chung, vai trò, mood.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PULL QUOTE BAND 02
+     ============================================================ -->
+<section class="quote-band">
+  <div class="quote-inner">
+    <p class="quote-text reveal">
+      "Một câu chuyện tốt không nằm ở câu chữ. Nó nằm ở cách mình <em>hiểu con người, hiểu bối cảnh</em>, hiểu những điều âm thầm nhưng thật sự quan trọng với một cộng đồng."
+    </p>
+    <div class="quote-attr reveal reveal-delay-1">— Felix · Process Note</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7 · PILLAR 03 — PRODUCTION FLUENCY
+     ============================================================ -->
+<section class="pillar" id="pillar-03">
+  <div class="pillar-head">
+    <div class="pillar-num reveal">III</div>
+    <div class="pillar-meta reveal reveal-delay-1">
+      <div class="pillar-eyebrow">Tập III · Pillar 03</div>
+      <h2 class="pillar-h">Production <em>Fluency</em></h2>
+      <p class="pillar-tagline">Tôi sống được trong môi trường sản xuất thực tế.</p>
+    </div>
+  </div>
+
+  <p class="pillar-intro reveal">
+    <strong>Câu hỏi tôi trả lời ở đây:</strong> Liệu tôi có thể theo câu chuyện đến tận trường quay, theo đến tận post-production? Câu trả lời: có. Tôi đã ở trên set thật, đã edit Reels cho thương hiệu lớn, đã dẫn dắt team 27 người ra triển lãm thật. Đây không phải lý thuyết — đây là phần tôi đã làm để đảm bảo những gì viết ra trang giấy sống được trên màn hình.
+  </p>
+
+  <div class="work-grid">
+
+    <div class="work reveal">
+      <div class="work-img-wrap">
+        <img src="images/production-vinfast.jpg" alt="VinFast x Kim Joo Yung production" class="work-img">
+      </div>
+      <div class="work-eyebrow">On-set Production · ForArt</div>
+      <h3 class="work-title">VinFast VF5 × Kim Joo Yung</h3>
+      <div class="work-meta">Production Manager · Reels Editor · 2024</div>
+      <p class="work-desc">Quản lý sản xuất cho chuỗi nội dung ngắn hỗ trợ chiến dịch VinFast VF5 × Kim Joo Yung — từ pre-production đến delivery cuối.</p>
+    </div>
+
+    <div class="work reveal reveal-delay-1">
+      <div class="work-img-wrap">
+        <img src="images/production-onset.jpg" alt="On-set TH true Milk Moc Chau Milk" class="work-img">
+      </div>
+      <div class="work-eyebrow">On-set Coordination · ForArt</div>
+      <h3 class="work-title">TH true Milk · Mộc Châu Milk · VinFast</h3>
+      <div class="work-meta">On-set Coordinator · QC · 2024</div>
+      <p class="work-desc">Điều phối trường quay cho các campaign thương hiệu và kiểm soát chất lượng source trong toàn bộ các ngày ghi hình.</p>
+    </div>
+
+    <div class="work reveal">
+      <div class="work-img-wrap">
+        <img src="images/rmit-social.jpg" alt="RMIT Student Council TikTok IG" class="work-img">
+      </div>
+      <div class="work-eyebrow">Social Direction · RMIT SC</div>
+      <h3 class="work-title">RMIT Student Council — TikTok · IG</h3>
+      <div class="work-meta">Director · Editor · 2022–2023</div>
+      <p class="work-desc">[EDIT] Mô tả về vai trò director cho social channels của Hội Sinh viên RMIT — định hướng nội dung, ra ý tưởng, kết quả.</p>
+    </div>
+
+    <div class="work reveal reveal-delay-1">
+      <div class="work-img-wrap">
+        <img src="images/empacts.jpg" alt="EMPACTS and Mental Wellness Exhibition" class="work-img">
+      </div>
+      <div class="work-eyebrow">Live Production · Exhibition</div>
+      <h3 class="work-title">Mental Wellness Exhibition · EMPACTS</h3>
+      <div class="work-meta">Project Lead · Founder · 2023–2024</div>
+      <p class="work-desc">Triển lãm tương tác về sức khỏe tinh thần — <strong>316 lượt khách, 34.500+ tương tác mạng xã hội</strong> trong 3 ngày. Sáng lập EMPACTS với 54 thành viên, 6 phòng ban, 40+ SOPs.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     8 · PERSONAL CREATIVE LIFE
+     ============================================================ -->
+<section class="personal-sec" id="personal">
+  <div class="pillar-head">
+    <div class="pillar-num reveal">⁂</div>
+    <div class="pillar-meta reveal reveal-delay-1">
+      <div class="pillar-eyebrow">Phụ Lục · Personal</div>
+      <h2 class="pillar-h">Khi không ai <em>trả tiền</em></h2>
+      <p class="pillar-tagline">Những gì tôi vẫn làm để giữ tay với văn hóa trẻ Việt.</p>
+    </div>
+  </div>
+
+  <p class="pillar-intro reveal">
+    Pillar này không nằm trong proof points chính, nhưng là phần quan trọng nhất để chứng minh tôi <em>sống</em> trong văn hóa trẻ Việt — chứ không chỉ quan sát từ ngoài. Đây là những dự án không ai brief, không ai trả tiền — chúng tồn tại vì tôi muốn chúng tồn tại.
+  </p>
+
+  <div class="work-grid">
+
+    <div class="work reveal">
+      <div class="work-img-wrap">
+        <img src="images/youtube.jpg" alt="Felix YouTube channel" class="work-img">
+      </div>
+      <div class="work-eyebrow">Personal Channel</div>
+      <h3 class="work-title">YouTube — 300+ subs · 30K+ views</h3>
+      <div class="work-meta">Creator · Editor · 2024–nay</div>
+      <p class="work-desc">[EDIT] Một câu về kênh — chủ đề, format, điều bạn học được từ đây.</p>
+    </div>
+
+    <div class="work reveal reveal-delay-1">
+      <div class="work-img-wrap">
+        <img src="images/duykhanh.jpg" alt="Duy Khanh ZhouZhou support" class="work-img">
+      </div>
+      <div class="work-eyebrow">Artist Support · Independent</div>
+      <h3 class="work-title">Duy Khánh ZhouZhou</h3>
+      <div class="work-meta">Creative Support · 2024</div>
+      <p class="work-desc">[EDIT] Mô tả về việc support nghệ sĩ độc lập — bạn làm gì, tại sao chọn artist này, kết quả.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     9 · CONTACT / COLOPHON
+     ============================================================ -->
+<section class="contact-sec" id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-inner">
+    <div class="contact-marker reveal">Liên Hệ · Contact</div>
+    <h2 class="contact-h reveal reveal-delay-1">
+      Làm gì <em>tiếp</em> theo<br>cùng nhau?
+    </h2>
+
+    <div class="contact-grid">
+      <div class="reveal reveal-delay-2">
+        <p class="contact-lead">
+          Tôi đang tìm những đội ngũ <em>táo bạo</em> với văn hóa Việt — nơi câu chuyện không chỉ để xem, mà để ngẫm, để bàn luận, để ghi nhớ.
+        </p>
+      </div>
+
+      <div class="contact-rows reveal reveal-delay-3">
+        <div class="contact-row">
+          <div class="contact-k">Email</div>
+          <div class="contact-v"><a href="mailto:felixphan.contact@gmail.com">felixphan.contact@gmail.com</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-k">Phone</div>
+          <div class="contact-v"><a href="tel:+84936647704">+84 936 647 704</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-k">LinkedIn</div>
+          <div class="contact-v"><a href="https://linkedin.com/in/felixphan" target="_blank" rel="noopener">linkedin.com/in/felixphan</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-k">CV</div>
+          <div class="contact-v"><a href="files/Felix_Phan_CV.pdf" target="_blank" rel="noopener">Download PDF</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-k">Based In</div>
+          <div class="contact-v">Hồ Chí Minh City · Vietnam</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="colophon">
+      <span>Felix Phan · Portfolio 2026</span>
+      <span class="colophon-mark">❧</span>
+      <span>Designed & written in Sài Gòn · Set in Playfair Display + DM Sans</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCROLL / INTERSECTION OBSERVER for reveal + active dot
+     ============================================================ -->
+<script>
+// Active dot navigation
+const sections = document.querySelectorAll('section[id]');
+const dots = document.querySelectorAll('#sidenav a');
+const navObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      dots.forEach(d => d.classList.remove('active'));
+      const a = document.querySelector(`#sidenav a[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+sections.forEach(s => navObserver.observe(s));
+
+// Reveal-on-scroll
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+reveals.forEach(r => revealObserver.observe(r));
+</script>
+
+</body>
+</html>

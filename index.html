@@ -6,10 +6,13 @@
 <title>Felix Phan · Story Architect · Portfolio 2026</title>
 <meta name="description" content="Felix Phan — Story Architect. Portfolio of script writing, short film, concept planning, and on-set production for VinFast, MAGGI, Hapacol, PNJ, BUV, Google, IKEA, Fanta, and Lume.">
 
-<!-- Google Fonts: Playfair Display + DM Sans (same family as QNH treatment) -->
+<!-- Progressive enhancement: mark html as JS-enabled BEFORE CSS so .reveal hides only with JS -->
+<script>document.documentElement.classList.add('js')</script>
+
+<!-- Google Fonts: Playfair Display + Inter (Vietnamese-friendly sans-serif) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,300;1,14..32,400&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
@@ -38,7 +41,7 @@ html{scroll-behavior:smooth}
 body{
   background:var(--paper);
   color:var(--ink);
-  font-family:'DM Sans',sans-serif;
+  font-family:'Inter',sans-serif;
   font-weight:300;
   font-size:15.5px;
   line-height:1.7;
@@ -81,7 +84,7 @@ a{color:inherit;text-decoration:none}
 .hero-name{font-family:'Playfair Display',serif;font-size:clamp(64px,11vw,168px);font-weight:400;line-height:.92;letter-spacing:-3px;margin-bottom:8px;color:var(--ink)}
 .hero-name .last{color:var(--red);font-style:italic;font-weight:500}
 .hero-role{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,30px);font-weight:400;font-style:italic;color:var(--ink-soft);margin-bottom:48px;letter-spacing:-.3px}
-.hero-role .pronouns{font-family:'DM Sans',sans-serif;font-style:normal;font-size:14px;color:var(--muted);letter-spacing:1px;margin-left:14px;vertical-align:middle}
+.hero-role .pronouns{font-family:'Inter',sans-serif;font-style:normal;font-size:14px;color:var(--muted);letter-spacing:1px;margin-left:14px;vertical-align:middle}
 .hero-rule{width:88px;height:1px;background:linear-gradient(to right,var(--red),transparent);margin-bottom:32px}
 .hero-premise{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,2vw,22px);line-height:1.55;color:var(--ink-soft);max-width:540px;font-weight:400}
 .hero-premise em{color:var(--red);font-style:italic;font-weight:500}
@@ -116,7 +119,7 @@ a{color:inherit;text-decoration:none}
 .toc-row:hover .toc-h{color:var(--red)}
 .toc-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--gold);font-style:italic}
 .toc-h{font-family:'Playfair Display',serif;font-size:clamp(20px,2.4vw,28px);font-weight:500;letter-spacing:-.3px;transition:color .25s;line-height:1.2}
-.toc-h-sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;font-family:'DM Sans',sans-serif;font-weight:400}
+.toc-h-sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px;font-family:'Inter',sans-serif;font-weight:400}
 .toc-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:right}
 .toc-pg{font-family:'Playfair Display',serif;font-size:18px;color:var(--red);font-style:italic;text-align:right;font-weight:400}
 @media(max-width:700px){.index-sec{padding:80px 28px}.toc-row{grid-template-columns:40px 1fr 40px;gap:18px;padding:22px 0}.toc-tag{display:none}}
@@ -134,7 +137,7 @@ a{color:inherit;text-decoration:none}
 .about-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:32px 40px;margin-top:48px;padding-top:36px;border-top:1px solid var(--border)}
 .fact-k{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:6px;font-weight:500}
 .fact-v{font-family:'Playfair Display',serif;font-size:18px;color:var(--ink);font-weight:500;line-height:1.4}
-.fact-v small{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);display:block;font-weight:300;margin-top:2px;letter-spacing:.3px}
+.fact-v small{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);display:block;font-weight:300;margin-top:2px;letter-spacing:.3px}
 @media(max-width:900px){.about-sec{padding:80px 28px}.about-grid{grid-template-columns:1fr;gap:40px}.about-facts{grid-template-columns:1fr 1fr;gap:24px}}
 
 /* ============================================================
@@ -191,12 +194,15 @@ a{color:inherit;text-decoration:none}
 .work-grid.cols-3{grid-template-columns:repeat(3,1fr);gap:36px 28px}
 @media(max-width:900px){.pillar{padding:80px 28px}.pillar-head{grid-template-columns:1fr;gap:24px;margin-bottom:48px}.pillar-num{font-size:88px}.work-grid,.work-grid.cols-3{grid-template-columns:1fr;gap:40px}}
 
-.work{display:flex;flex-direction:column;position:relative;transition:transform .3s ease}
+.work{display:flex;flex-direction:column;position:relative;transition:transform .3s ease;color:inherit;text-decoration:none}
 .work:hover{transform:translateY(-3px)}
 .work:hover .work-img{filter:grayscale(0);transform:scale(1.015)}
 .work:hover .work-title{color:var(--red)}
-.work-img-wrap{aspect-ratio:8/5;background:var(--paper-warm);overflow:hidden;margin-bottom:18px;border:1px solid var(--border)}
+.work:hover .work-cue{opacity:1;transform:translate(0,0)}
+.work-img-wrap{aspect-ratio:8/5;background:var(--paper-warm);overflow:hidden;margin-bottom:18px;border:1px solid var(--border);position:relative}
 .work-img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0.15);transition:all .5s ease}
+.work-cue{position:absolute;top:14px;right:14px;width:36px;height:36px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:14px;letter-spacing:1px;opacity:0;transform:translate(4px,-4px);transition:opacity .35s ease,transform .35s ease;pointer-events:none;border:1px solid var(--ink)}
+.work-cue::before{content:'↗';font-family:'Inter',sans-serif;font-weight:400;line-height:1}
 .work-eyebrow{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:8px;font-weight:500}
 .work-title{font-family:'Playfair Display',serif;font-size:21px;font-weight:600;line-height:1.25;letter-spacing:-.3px;margin-bottom:8px;transition:color .25s}
 .work-meta{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
@@ -246,15 +252,17 @@ a{color:inherit;text-decoration:none}
 @media(max-width:900px){.contact-sec{padding:80px 28px}.contact-grid{grid-template-columns:1fr;gap:40px}.contact-row{grid-template-columns:80px 1fr;gap:14px}.colophon{flex-direction:column;text-align:center;gap:14px}}
 
 /* ============================================================
-   REVEAL ANIMATIONS
+   REVEAL ANIMATIONS — Progressive enhancement
+   Only hide elements if JS is active (html.js class added by inline script).
+   No JS → everything visible immediately (good for accessibility & SEO).
    ============================================================ */
-.reveal{opacity:0;transform:translateY(24px);transition:all .9s cubic-bezier(.2,.7,.2,1)}
-.reveal.in{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.08s}
-.reveal-delay-2{transition-delay:.16s}
-.reveal-delay-3{transition-delay:.24s}
-.reveal-delay-4{transition-delay:.32s}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+html.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+html.js .reveal.in{opacity:1;transform:translateY(0)}
+html.js .reveal-delay-1{transition-delay:.08s}
+html.js .reveal-delay-2{transition-delay:.16s}
+html.js .reveal-delay-3{transition-delay:.24s}
+html.js .reveal-delay-4{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){html.js .reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -278,7 +286,6 @@ a{color:inherit;text-decoration:none}
   <a href="#pillar-01" data-label="Story"></a>
   <a href="#pillar-02" data-label="Culture"></a>
   <a href="#pillar-03" data-label="Production"></a>
-  <a href="#personal" data-label="Personal"></a>
   <a href="#contact" data-label="Contact"></a>
 </nav>
 
@@ -367,16 +374,6 @@ a{color:inherit;text-decoration:none}
         <div class="toc-tag">4 works</div>
         <div class="toc-pg">14</div>
       </a>
-
-      <a href="#personal" class="toc-row reveal reveal-delay-4">
-        <div class="toc-num">⁂</div>
-        <div>
-          <div class="toc-h">Personal Creative Life</div>
-          <div class="toc-h-sub">Những điều mình làm khi không ai trả tiền</div>
-        </div>
-        <div class="toc-tag">2 works</div>
-        <div class="toc-pg">18</div>
-      </a>
     </div>
   </div>
 </section>
@@ -448,12 +445,12 @@ a{color:inherit;text-decoration:none}
         <img src="images/qnh-cover.jpg" alt="QNH Huế Treatment Cover" class="featured-img">
       </div>
       <div class="featured-info">
-        <div class="featured-eyebrow">Episode Treatment · 12 sections</div>
+        <div class="featured-eyebrow">Episode Treatment · 6 sections</div>
         <h3 class="featured-h">
-          <em>"Khi xã hội đã quen cashless,<br>điều gì xảy ra với những<br>nghi thức cần tiền mặt?"</em>
+          <em>"Khi xã hội thay đổi,<br>một nghi thức đẹp<br>sẽ đi về đâu?"</em>
         </h3>
         <p class="featured-desc">
-          Treatment đầy đủ cho một tập Quán Nhà Haha quay tại Huế: bữa tối nhã nhạc cung đình trên thuyền rồng, với hoa cài tiền truyền thống được tái thiết kế thành "hoa số hóa" qua VCB DigiBank. Bao gồm concept, bối cảnh, ba hồi, breakdown 5 cast, tích hợp sponsor 6 bước, và 10 phương án tên tập.
+          Treatment đầy đủ cho một tập Quán Nhà Haha quay tại Huế: bữa tối nhã nhạc cung đình trên thuyền rồng, với hoa cài tiền truyền thống được tái thiết kế thành "hoa số hóa" qua VCB DigiBank. Bao gồm bối cảnh, ba hồi, breakdown 5 cast, tích hợp sponsor 6 bước, và 10 phương án tên tập.
         </p>
         <div class="featured-tags">
           <span class="tag">Situation Design</span>
@@ -492,45 +489,53 @@ a{color:inherit;text-decoration:none}
   <div class="group-label reveal">1.1 · TVC Storyboards</div>
   <div class="work-grid">
 
-    <div class="work reveal">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/tvc-buv.jpg" alt="BUV TVC storyboard" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">TVC · Education Brand</div>
       <h3 class="work-title">BUV — British University Vietnam</h3>
       <div class="work-meta">Biên Kịch · Storyboard · 2025</div>
       <p class="work-desc">[EDIT] Mô tả ngắn 2–3 dòng về vai trò và cách tiếp cận trên TVC này — câu chuyện gì, đối tượng nào, kết quả như thế nào.</p>
-    </div>
+    </a>
 
-    <div class="work reveal reveal-delay-1">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal reveal-delay-1" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/tvc-hapacol.jpg" alt="Hapacol TVC storyboard" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">TVC · Pharmaceutical</div>
       <h3 class="work-title">Hapacol — DHG Pharma</h3>
       <div class="work-meta">Biên Kịch · Storyboard · 2024</div>
       <p class="work-desc">[EDIT] Mô tả ngắn 2–3 dòng — bối cảnh brief, hướng tiếp cận, sản phẩm cuối.</p>
-    </div>
+    </a>
 
-    <div class="work reveal">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/tvc-maggi.jpg" alt="MAGGI Tet 2026 storyboard" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">TVC · FMCG · Tet Campaign</div>
       <h3 class="work-title">MAGGI — Tết 2026</h3>
       <div class="work-meta">Biên Kịch · Storyboard · 2025</div>
       <p class="work-desc">[EDIT] Mô tả về cách approach Tết — văn hóa, gia đình, vị giác — và đóng góp của bạn trong storyboard.</p>
-    </div>
+    </a>
 
-    <div class="work reveal reveal-delay-1">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal reveal-delay-1" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/tvc-boardgame.jpg" alt="Boardgame Tet 2025 storyboard" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">TVC · Boardgame · Tet 2025</div>
       <h3 class="work-title">Boardgame Tết 2025</h3>
       <div class="work-meta">Biên Kịch · Storyboard · 2024</div>
       <p class="work-desc">[EDIT] Mô tả ngắn về câu chuyện và cách tiếp cận.</p>
-    </div>
+    </a>
 
   </div>
 
@@ -538,25 +543,29 @@ a{color:inherit;text-decoration:none}
   <div class="group-label reveal">1.2 · Short Film</div>
   <div class="work-grid">
 
-    <div class="work reveal">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/film-yenhoa.jpg" alt="Yen Hoa High School short film" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Short Film · 1st Prize Winner</div>
       <h3 class="work-title">"Tôi 18 · Giấc Chiêm Bao" — THPT Yên Hòa</h3>
       <div class="work-meta">Biên Kịch · Đạo Diễn · Dựng Phim · 2022</div>
       <p class="work-desc">[EDIT] Brief về phim ngắn đoạt Giải Nhất — chủ đề, cách kể, thành tích.</p>
-    </div>
+    </a>
 
-    <div class="work reveal reveal-delay-1">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal reveal-delay-1" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/film-pnj.jpg" alt="PNJ Wedding short film" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Short Film · Brand · Wedding</div>
       <h3 class="work-title">PNJ — Wedding Film</h3>
       <div class="work-meta">Biên Kịch · 2024</div>
       <p class="work-desc">[EDIT] Mô tả về dự án PNJ Wedding — cảm xúc, văn hóa, cách kể.</p>
-    </div>
+    </a>
 
   </div>
 
@@ -564,15 +573,17 @@ a{color:inherit;text-decoration:none}
   <div class="group-label reveal">1.3 · Podcast</div>
   <div class="work-grid">
 
-    <div class="work reveal">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/podcast-energy.jpg" alt="Sustainable Energy podcast" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Long-form · Sustainability</div>
       <h3 class="work-title">Sustainable Energy — Podcast Series</h3>
       <div class="work-meta">Biên Kịch · Producer · 2024</div>
       <p class="work-desc">[EDIT] Brief về podcast năng lượng bền vững — góc nhìn, định dạng, đối tượng nghe.</p>
-    </div>
+    </a>
 
   </div>
 </section>
@@ -610,45 +621,53 @@ a{color:inherit;text-decoration:none}
   <div class="group-label reveal">2.1 · Big Ideas & Art Direction</div>
   <div class="work-grid cols-3">
 
-    <div class="work cols-3 reveal">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work cols-3 reveal" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
-        <img src="images/concept-google.jpg" alt="Google art direction" class="work-img">
+        <img src="images/concept-google.gif" alt="Google art direction" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Art Direction</div>
       <h3 class="work-title">Google — Art Direction</h3>
       <div class="work-meta">Concept · Direction · 2024</div>
       <p class="work-desc">[EDIT] Brief về dự án art direction cho Google — câu chuyện và cách định hình visual.</p>
-    </div>
+    </a>
 
-    <div class="work cols-3 reveal reveal-delay-1">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work cols-3 reveal reveal-delay-1" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/concept-ikea.jpg" alt="IKEA big idea" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Concept · Big Idea</div>
       <h3 class="work-title">IKEA — Big Idea</h3>
       <div class="work-meta">Concept · 2024</div>
       <p class="work-desc">[EDIT] Insight nào về văn hóa sống/không gian Việt đã dẫn đến big idea này.</p>
-    </div>
+    </a>
 
-    <div class="work cols-3 reveal reveal-delay-2">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work cols-3 reveal reveal-delay-2" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/concept-fanta.jpg" alt="Fanta big idea" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Concept · Big Idea</div>
       <h3 class="work-title">Fanta — Big Idea</h3>
       <div class="work-meta">Concept · 2024</div>
       <p class="work-desc">[EDIT] Brief về big idea cho Fanta — đọc văn hóa trẻ và translate ra concept.</p>
-    </div>
+    </a>
 
-    <div class="work cols-3 reveal">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work cols-3 reveal" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/concept-lume.jpg" alt="Lume big idea" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Concept · Big Idea</div>
       <h3 class="work-title">Lume — Big Idea</h3>
       <div class="work-meta">Concept · 2024</div>
       <p class="work-desc">[EDIT] Brief về big idea cho Lume.</p>
-    </div>
+    </a>
 
   </div>
 
@@ -656,25 +675,29 @@ a{color:inherit;text-decoration:none}
   <div class="group-label reveal">2.2 · Editorial</div>
   <div class="work-grid">
 
-    <div class="work reveal">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/magazine-gender.jpg" alt="Gender equality magazine" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Magazine · Social Commentary</div>
       <h3 class="work-title">Gender Equality Magazine</h3>
       <div class="work-meta">Concept · Editorial · 2023</div>
       <p class="work-desc">[EDIT] Brief về tạp chí — quan điểm xã hội, đối tượng, cách approach.</p>
-    </div>
+    </a>
 
-    <div class="work reveal reveal-delay-1">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal reveal-delay-1" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/photoshoots.jpg" alt="Photoshoots" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Photo Direction · 3 Shoots</div>
       <h3 class="work-title">Photoshoots Series</h3>
       <div class="work-meta">Concept · Direction · 2023–2024</div>
       <p class="work-desc">[EDIT] Brief về 3 photoshoots — chủ đề chung, vai trò, mood.</p>
-    </div>
+    </a>
 
   </div>
 </section>
@@ -710,93 +733,59 @@ a{color:inherit;text-decoration:none}
 
   <div class="work-grid">
 
-    <div class="work reveal">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/production-vinfast.jpg" alt="VinFast x Kim Joo Yung production" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">On-set Production · ForArt</div>
       <h3 class="work-title">VinFast VF5 × Kim Joo Yung</h3>
       <div class="work-meta">Production Manager · Reels Editor · 2024</div>
       <p class="work-desc">Quản lý sản xuất cho chuỗi nội dung ngắn hỗ trợ chiến dịch VinFast VF5 × Kim Joo Yung — từ pre-production đến delivery cuối.</p>
-    </div>
+    </a>
 
-    <div class="work reveal reveal-delay-1">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal reveal-delay-1" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/production-onset.jpg" alt="On-set TH true Milk Moc Chau Milk" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">On-set Coordination · ForArt</div>
       <h3 class="work-title">TH true Milk · Mộc Châu Milk · VinFast</h3>
       <div class="work-meta">On-set Coordinator · QC · 2024</div>
       <p class="work-desc">Điều phối trường quay cho các campaign thương hiệu và kiểm soát chất lượng source trong toàn bộ các ngày ghi hình.</p>
-    </div>
+    </a>
 
-    <div class="work reveal">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/rmit-social.jpg" alt="RMIT Student Council TikTok IG" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Social Direction · RMIT SC</div>
       <h3 class="work-title">RMIT Student Council — TikTok · IG</h3>
       <div class="work-meta">Director · Editor · 2022–2023</div>
       <p class="work-desc">[EDIT] Mô tả về vai trò director cho social channels của Hội Sinh viên RMIT — định hướng nội dung, ra ý tưởng, kết quả.</p>
-    </div>
+    </a>
 
-    <div class="work reveal reveal-delay-1">
+    <!-- DRIVE LINK: Replace href below with this project's specific Drive URL -->
+    <a class="work reveal reveal-delay-1" href="https://drive.google.com/drive/folders/1V2B8GdUd8n1Ow4qBCJbamX6onqHldVvm" target="_blank" rel="noopener">
       <div class="work-img-wrap">
         <img src="images/empacts.jpg" alt="EMPACTS and Mental Wellness Exhibition" class="work-img">
+        <div class="work-cue"></div>
       </div>
       <div class="work-eyebrow">Live Production · Exhibition</div>
       <h3 class="work-title">Mental Wellness Exhibition · EMPACTS</h3>
       <div class="work-meta">Project Lead · Founder · 2023–2024</div>
       <p class="work-desc">Triển lãm tương tác về sức khỏe tinh thần — <strong>316 lượt khách, 34.500+ tương tác mạng xã hội</strong> trong 3 ngày. Sáng lập EMPACTS với 54 thành viên, 6 phòng ban, 40+ SOPs.</p>
-    </div>
+    </a>
 
   </div>
 </section>
 
 <!-- ============================================================
-     8 · PERSONAL CREATIVE LIFE
-     ============================================================ -->
-<section class="personal-sec" id="personal">
-  <div class="pillar-head">
-    <div class="pillar-num reveal">⁂</div>
-    <div class="pillar-meta reveal reveal-delay-1">
-      <div class="pillar-eyebrow">Phụ Lục · Personal</div>
-      <h2 class="pillar-h">Khi không ai <em>trả tiền</em></h2>
-      <p class="pillar-tagline">Những gì tôi vẫn làm để giữ tay với văn hóa trẻ Việt.</p>
-    </div>
-  </div>
-
-  <p class="pillar-intro reveal">
-    Pillar này không nằm trong proof points chính, nhưng là phần quan trọng nhất để chứng minh tôi <em>sống</em> trong văn hóa trẻ Việt — chứ không chỉ quan sát từ ngoài. Đây là những dự án không ai brief, không ai trả tiền — chúng tồn tại vì tôi muốn chúng tồn tại.
-  </p>
-
-  <div class="work-grid">
-
-    <div class="work reveal">
-      <div class="work-img-wrap">
-        <img src="images/youtube.jpg" alt="Felix YouTube channel" class="work-img">
-      </div>
-      <div class="work-eyebrow">Personal Channel</div>
-      <h3 class="work-title">YouTube — 300+ subs · 30K+ views</h3>
-      <div class="work-meta">Creator · Editor · 2024–nay</div>
-      <p class="work-desc">[EDIT] Một câu về kênh — chủ đề, format, điều bạn học được từ đây.</p>
-    </div>
-
-    <div class="work reveal reveal-delay-1">
-      <div class="work-img-wrap">
-        <img src="images/duykhanh.jpg" alt="Duy Khanh ZhouZhou support" class="work-img">
-      </div>
-      <div class="work-eyebrow">Artist Support · Independent</div>
-      <h3 class="work-title">Duy Khánh ZhouZhou</h3>
-      <div class="work-meta">Creative Support · 2024</div>
-      <p class="work-desc">[EDIT] Mô tả về việc support nghệ sĩ độc lập — bạn làm gì, tại sao chọn artist này, kết quả.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     9 · CONTACT / COLOPHON
+     8 · CONTACT / COLOPHON
      ============================================================ -->
 <section class="contact-sec" id="contact">
   <div class="contact-bg"></div>
@@ -840,7 +829,7 @@ a{color:inherit;text-decoration:none}
     <div class="colophon">
       <span>Felix Phan · Portfolio 2026</span>
       <span class="colophon-mark">❧</span>
-      <span>Designed & written in Sài Gòn · Set in Playfair Display + DM Sans</span>
+      <span>Designed & written in Sài Gòn · Set in Playfair Display + Inter</span>
     </div>
   </div>
 </section>
@@ -849,31 +838,42 @@ a{color:inherit;text-decoration:none}
      SCROLL / INTERSECTION OBSERVER for reveal + active dot
      ============================================================ -->
 <script>
-// Active dot navigation
-const sections = document.querySelectorAll('section[id]');
-const dots = document.querySelectorAll('#sidenav a');
-const navObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      dots.forEach(d => d.classList.remove('active'));
-      const a = document.querySelector(`#sidenav a[href="#${e.target.id}"]`);
-      if (a) a.classList.add('active');
-    }
-  });
-}, { threshold: 0.35 });
-sections.forEach(s => navObserver.observe(s));
+// Safety fallback: if anything goes wrong with the observer, show all reveals after 2s.
+// Also fires if IntersectionObserver isn't supported.
+const showAll = () => document.querySelectorAll('.reveal').forEach(r => r.classList.add('in'));
 
-// Reveal-on-scroll
-const reveals = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      revealObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-reveals.forEach(r => revealObserver.observe(r));
+if (!('IntersectionObserver' in window)) {
+  showAll();
+} else {
+  // Active dot navigation
+  const sections = document.querySelectorAll('section[id]');
+  const dots = document.querySelectorAll('#sidenav a');
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        dots.forEach(d => d.classList.remove('active'));
+        const a = document.querySelector(`#sidenav a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => navObserver.observe(s));
+
+  // Reveal-on-scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  reveals.forEach(r => revealObserver.observe(r));
+}
+
+// Safety net — anything still hidden after 2.5s gets shown
+setTimeout(() => document.querySelectorAll('.reveal:not(.in)').forEach(r => r.classList.add('in')), 2500);
 </script>
 
 </body>
